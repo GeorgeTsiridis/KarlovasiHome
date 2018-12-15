@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
+             xmlns:pscr="clr-namespace:PSC.Xam.Controls.BindableRadioButton;assembly=PSC.Xam.Controls.BindableRadioButton"
+             x:Class="KarlovasiHome.Views.SignUpPage"
+             Title="">
+
+    <ContentPage.BindingContext>
+        <viewModels:SignUpViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView Padding="10">
+        <StackLayout>
+            <Entry x:Name="UsernameEntry" Placeholder="Username"/>
+
+            <Entry x:Name="NameEntry" Placeholder="Name"/>
+
+            <Entry x:Name="LastnameEntry" Placeholder="Lastname"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="I'm a" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" SelectedIndex="-1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <Entry x:Name="PhoneEntry" Placeholder="Phone" Keyboard="Numeric"/>
+
+            <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email"/>
+
+            <Entry x:Name="PasswordEntry" Placeholder="Password"/>
+
+            <Entry x:Name="RenterPasswordEntry" Placeholder="Re-enter Password"/>
+
+            <Button Text="Sign Up" Clicked="SignUp_OnClicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
