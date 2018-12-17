@@ -4,18 +4,12 @@
              x:Class="KarlovasiHome.Views.SignInPage"
              Title="">
 
-    <!-- <ContentPage.BindingContext> -->
-    <!-- </ContentPage.BindingContext> -->
-    <!-- -->
-    <!-- <ContentPage.Resources> -->
-    <!-- </ContentPage.Resources> -->
-
     <StackLayout VerticalOptions="CenterAndExpand">
         <Label Text="Username"/>
-        <Entry x:Name="UsernameEntry"/>
-        <Label Text="Password"/>
-        <Entry x:Name="PasswordEntry"/>
-        <Button Text="Sign In" Clicked="SignIn_OnClicked"/>
-        <Button Text="Sign Up" Clicked="SignUp_OnClicked"/>
+        <Entry x:Name="UsernameEntry" Text=""/>
+        <Label Text="Κωδικός"/>
+        <Entry x:Name="PasswordEntry" Text=""/>
+        <Button Text="Είσοδος" Clicked="SignIn_OnClicked"/>
+        <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
     </StackLayout>
 </ContentPage>

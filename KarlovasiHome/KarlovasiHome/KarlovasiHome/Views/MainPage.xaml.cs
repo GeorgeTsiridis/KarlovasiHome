@@ -1,7 +1,4 @@
 ﻿using KarlovasiHome.Models;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,39 +7,41 @@ namespace KarlovasiHome.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
         public MainPage()
         {
             InitializeComponent();
 
-            MasterBehavior = MasterBehavior.Popover;
+            Master = new MenuPage(this);
+            Detail = new NavigationPage(new ProfilePage());
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MasterBehavior = MasterBehavior.Popover;
         }
 
-        public async Task NavigateFromMenu(int id)
+        public void NavigateFromMenu(MenuItemType type)
         {
-            if (!MenuPages.ContainsKey(id))
+            Page page = null;
+            switch (type)
             {
-                switch (id)
-                {
-                    case (int) MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
-                    case (int) MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
-                }
+                case MenuItemType.Profile:
+                    page = new NavigationPage(new ProfilePage());
+                    break;
+                case MenuItemType.Feed:
+                    page = new NavigationPage(new FeedPage());
+                    break;
+                case MenuItemType.Map:
+                    page = new NavigationPage(new MapPage());
+                    break;
+                case MenuItemType.Manage:
+                    page = new NavigationPage(new ManagePage());
+                    break;
+                case MenuItemType.Favorites:
+                    page = new NavigationPage(new FavoritesPage());
+                    break;
             }
 
-            var newPage = MenuPages[id];
-
-            if (newPage != null && Detail != newPage)
+            if (page != null && Detail != page)
             {
-                Detail = newPage;
-
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
+                Detail = page;
 
                 IsPresented = false;
             }
