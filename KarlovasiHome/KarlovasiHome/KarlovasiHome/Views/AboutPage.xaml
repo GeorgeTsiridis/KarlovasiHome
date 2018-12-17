@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KarlovasiHome.Views.AboutPage"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             Title="mpla">
+             Title="">
 
     <StackLayout>
         <Entry x:Name="AddressEntry" Placeholder="Δωστο"></Entry>

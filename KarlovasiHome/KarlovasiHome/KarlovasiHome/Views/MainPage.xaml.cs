@@ -1,7 +1,5 @@
 ﻿using KarlovasiHome.Models;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,27 +8,37 @@ namespace KarlovasiHome.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+        public Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+
         public MainPage()
         {
             InitializeComponent();
 
+            Master = new MenuPage(this);
+            Detail = new NavigationPage(new ProfilePage());
             MasterBehavior = MasterBehavior.Popover;
-
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
         }
 
-        public async Task NavigateFromMenu(int id)
+        public void NavigateFromMenu(int id)
         {
             if (!MenuPages.ContainsKey(id))
             {
                 switch (id)
                 {
-                    case (int) MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                    case (int) MenuItemType.Profile:
+                        MenuPages.Add(id, new NavigationPage(new ProfilePage()));
                         break;
-                    case (int) MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                    case (int) MenuItemType.Feed:
+                        MenuPages.Add(id, new NavigationPage(new ProfilePage()));
+                        break;
+                    case (int) MenuItemType.Map:
+                        MenuPages.Add(id, new NavigationPage(new ProfilePage()));
+                        break;
+                    case (int) MenuItemType.Manage:
+                        MenuPages.Add(id, new NavigationPage(new ProfilePage()));
+                        break;
+                    case (int) MenuItemType.Favorites:
+                        MenuPages.Add(id, new NavigationPage(new ProfilePage()));
                         break;
                 }
             }
@@ -40,10 +48,7 @@ namespace KarlovasiHome.Views
             if (newPage != null && Detail != newPage)
             {
                 Detail = newPage;
-
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
-
+                
                 IsPresented = false;
             }
         }

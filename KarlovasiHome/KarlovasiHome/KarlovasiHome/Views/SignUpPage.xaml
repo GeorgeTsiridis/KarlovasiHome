@@ -10,28 +10,28 @@
         <viewModels:SignUpViewModel/>
     </ContentPage.BindingContext>
 
-    <ScrollView Padding="10">
+    <ScrollView>
         <StackLayout>
             <Entry x:Name="UsernameEntry" Placeholder="Username"/>
 
-            <Entry x:Name="NameEntry" Placeholder="Name"/>
+            <Entry x:Name="NameEntry" Placeholder="Όνομα"/>
 
-            <Entry x:Name="LastnameEntry" Placeholder="Lastname"/>
+            <Entry x:Name="LastnameEntry" Placeholder="Επίθετο"/>
 
             <StackLayout Orientation="Horizontal">
-                <Label Text="I'm a" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Label Text="Είμαι" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" SelectedIndex="-1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             </StackLayout>
 
-            <Entry x:Name="PhoneEntry" Placeholder="Phone" Keyboard="Numeric"/>
+            <Entry x:Name="PhoneEntry" Placeholder="Τηλέφωνο" Keyboard="Numeric"/>
 
             <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email"/>
 
-            <Entry x:Name="PasswordEntry" Placeholder="Password"/>
+            <Entry x:Name="PasswordEntry" Placeholder="Κωδικός"/>
 
-            <Entry x:Name="RenterPasswordEntry" Placeholder="Re-enter Password"/>
+            <Entry x:Name="RenterPasswordEntry" Placeholder="Επαλήθευση Κωδικού"/>
 
-            <Button Text="Sign Up" Clicked="SignUp_OnClicked"/>
+            <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

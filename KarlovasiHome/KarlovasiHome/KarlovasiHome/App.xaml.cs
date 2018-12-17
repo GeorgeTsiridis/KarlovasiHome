@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using KarlovasiHome.Services;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using KarlovasiHome.Views;
 
@@ -7,10 +8,13 @@ namespace KarlovasiHome
 {
     public partial class App : Application
     {
+        public static DataService DataService { get; set; }
 
         public App()
         {
             InitializeComponent();
+
+            DataService = new DataService();;
 
             MainPage = new SignInPage();
         }
