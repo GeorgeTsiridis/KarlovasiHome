@@ -2,7 +2,7 @@
 {
     public class HomeMenuItem
     {
-        public MenuItemType Id { get; set; }
+        public MenuItemType Type { get; set; }
         public string Title { get; set; }
     }
 

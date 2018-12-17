@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace KarlovasiHome.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfilePage : ContentPage
+    public partial class ManagePage : ContentPage
     {
-        public ProfilePage()
+        public ManagePage()
         {
             InitializeComponent();
         }

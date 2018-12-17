@@ -21,9 +21,9 @@ namespace KarlovasiHome.Views
             if (e.Item == null)
                 return;
 
-            var id = (int)((HomeMenuItem) e.Item).Id;
+            var type = ((HomeMenuItem) e.Item).Type;
             ListViewMenu.SelectedItem = null;
-            RootPage.NavigateFromMenu(id);
+            RootPage.NavigateFromMenu(type);
         }
     }
 }

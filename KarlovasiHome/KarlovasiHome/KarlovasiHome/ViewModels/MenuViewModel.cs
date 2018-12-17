@@ -12,14 +12,14 @@ namespace KarlovasiHome.ViewModels
             if (App.DataService.User.UserType == UserType.Landlord)
                 MenuItems = new List<HomeMenuItem>
                 {
-                    new HomeMenuItem { Id = MenuItemType.Profile, Title="Προφίλ"},
-                    new HomeMenuItem { Id = MenuItemType.Manage, Title="Διαχείρηση"}
+                    new HomeMenuItem { Type = MenuItemType.Profile, Title="Προφίλ"},
+                    new HomeMenuItem { Type = MenuItemType.Manage, Title="Διαχείρηση"}
                 };
             else
                 MenuItems = new List<HomeMenuItem>
                 {
-                    new HomeMenuItem { Id = MenuItemType.Profile, Title="Προφίλ"},
-                    new HomeMenuItem { Id = MenuItemType.Favorites, Title="Αγαπημένα"}
+                    new HomeMenuItem { Type = MenuItemType.Profile, Title="Προφίλ"},
+                    new HomeMenuItem { Type = MenuItemType.Favorites, Title="Αγαπημένα"}
                 };
         }
     }

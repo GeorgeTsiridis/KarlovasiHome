@@ -4,6 +4,14 @@
     {
         private bool _isAvailable;
         private string _userId;
+        private string _name;
+       /* private Type _type;
+        private string _floorArea;
+        List Images
+        private int rooms;
+        price
+            year
+        perigrafi*/
 
         public bool IsAvailable
         {
