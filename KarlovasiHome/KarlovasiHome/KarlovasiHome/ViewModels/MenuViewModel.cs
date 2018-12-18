@@ -12,6 +12,8 @@ namespace KarlovasiHome.ViewModels
             if (App.DataService.User.UserType == UserType.Landlord)
                 MenuItems = new List<HomeMenuItem>
                 {
+                    new HomeMenuItem { Type = MenuItemType.Profile, Title="Διαχείρηση"},
+                    new HomeMenuItem { Type = MenuItemType.Profile, Title="Χάρτης"},
                     new HomeMenuItem { Type = MenuItemType.Profile, Title="Προφίλ"},
                     new HomeMenuItem { Type = MenuItemType.Manage, Title="Διαχείρηση"}
                 };
