@@ -1,4 +1,5 @@
-﻿using KarlovasiHome.Models;
+﻿using System;
+using KarlovasiHome.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,6 +25,11 @@ namespace KarlovasiHome.Views
             var type = ((HomeMenuItem) e.Item).Type;
             ListViewMenu.SelectedItem = null;
             RootPage.NavigateFromMenu(type);
+        }
+
+        private void ProfileImage_OnTapped(object sender, EventArgs e)
+        {
+            RootPage.NavigateFromMenu(MenuItemType.Profile);
         }
     }
 }

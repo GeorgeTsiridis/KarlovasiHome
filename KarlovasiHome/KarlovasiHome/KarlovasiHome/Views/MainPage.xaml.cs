@@ -12,7 +12,7 @@ namespace KarlovasiHome.Views
             InitializeComponent();
 
             Master = new MenuPage(this);
-            Detail = new NavigationPage(new ProfilePage());
+            Detail = new NavigationPage(new FeedPage());
 
             MasterBehavior = MasterBehavior.Popover;
         }
