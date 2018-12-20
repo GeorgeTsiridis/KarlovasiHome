@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace KarlovasiHome.Views
@@ -9,6 +10,16 @@ namespace KarlovasiHome.Views
         public ManagePage()
         {
             InitializeComponent();
+        }
+
+        private void Add_OnClicked(object sender, EventArgs e)
+        {
+            // add apartment page
+        }
+
+        private void ApartmentsListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            ApartmentsListView.SelectedItem = null;
         }
     }
 }

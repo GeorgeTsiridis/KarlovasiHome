@@ -4,6 +4,10 @@
              x:Class="KarlovasiHome.Views.ProfilePage"
              Title="">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="settings.png" Clicked="Settings_OnClicked"/>
+    </ContentPage.ToolbarItems>
+
     <StackLayout VerticalOptions="CenterAndExpand">
         <Label FontSize="50" Text="Profile"/>
     </StackLayout>

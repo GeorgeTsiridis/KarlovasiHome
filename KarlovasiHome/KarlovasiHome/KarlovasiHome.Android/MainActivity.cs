@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using ImageCircle.Forms.Plugin.Droid;
 
 namespace KarlovasiHome.Droid
 {
@@ -15,6 +16,7 @@ namespace KarlovasiHome.Droid
             base.OnCreate(bundle);
             Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
+            ImageCircleRenderer.Init();
 
             LoadApplication(new App());
         }

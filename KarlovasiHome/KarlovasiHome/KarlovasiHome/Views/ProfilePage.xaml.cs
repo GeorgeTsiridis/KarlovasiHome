@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace KarlovasiHome.Views
@@ -9,6 +10,11 @@ namespace KarlovasiHome.Views
         public ProfilePage()
         {
             InitializeComponent();
+        }
+
+        private void Settings_OnClicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }
