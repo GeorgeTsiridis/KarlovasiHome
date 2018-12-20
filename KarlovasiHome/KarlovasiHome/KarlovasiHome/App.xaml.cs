@@ -1,4 +1,5 @@
 ﻿using KarlovasiHome.Services;
+using KarlovasiHome.SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using KarlovasiHome.Views;
@@ -9,14 +10,25 @@ namespace KarlovasiHome
     public partial class App : Application
     {
         public static DataService DataService { get; set; }
+        public static ItemDatabase ItemDatabase { get; set; }
+        public static ISqliteManage SqliteManage { get; set; }
+        public static ItemController ItemController { get; set; }
 
         public App()
         {
             InitializeComponent();
 
-            DataService = new DataService();;
+            ItemDatabase = new ItemDatabase(SqliteManage.DatabaseFolder());
+            ItemController = new ItemController();
+
+            DataService = new DataService();
 
             MainPage = new SignInPage();
+        }
+
+        public static void Init(ISqliteManage sqliteManage)
+        {
+            SqliteManage = sqliteManage;
         }
 
         protected override void OnStart()

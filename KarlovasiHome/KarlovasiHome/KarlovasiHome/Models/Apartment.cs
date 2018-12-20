@@ -7,12 +7,13 @@ namespace KarlovasiHome.Models
     {
         private string _ownerId;
         private string _name;
-        private string _description;
+        private bool _isAvailable;
+        private string _address;
         private double _price;
         private double _floorArea;
         private int _rooms;
         private int _year;
-        private bool _isAvailable;
+        private string _description;
         private RoomType _roomType;
         private List<Bitmap> _images;
 
@@ -36,13 +37,23 @@ namespace KarlovasiHome.Models
             }
         }
 
-        public string Description
+        public bool IsAvailable
         {
-            get { return _description; }
+            get { return _isAvailable; }
             set
             {
-                _description = value;
-                OnPropertyChanged(nameof(Description));
+                _isAvailable = value;
+                OnPropertyChanged(nameof(IsAvailable));
+            }
+        }
+
+        public string Address
+        {
+            get { return _address; }
+            set
+            {
+                _address = value;
+                OnPropertyChanged(nameof(Address));
             }
         }
 
@@ -86,13 +97,13 @@ namespace KarlovasiHome.Models
             }
         }
 
-        public bool IsAvailable
+        public string Description
         {
-            get { return _isAvailable; }
+            get { return _description; }
             set
             {
-                _isAvailable = value;
-                OnPropertyChanged(nameof(IsAvailable));
+                _description = value;
+                OnPropertyChanged(nameof(Description));
             }
         }
 

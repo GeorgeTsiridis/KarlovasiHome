@@ -24,13 +24,13 @@ namespace KarlovasiHome.Services
 
             MockApartments = new List<Apartment>
             {
-                new Apartment { OwnerId = "1", Name = "Apartment1", IsAvailable = true },
-                new Apartment { OwnerId = "1", Name = "Apartment2", IsAvailable = true },
-                new Apartment { OwnerId = "2", Name = "Apartment3", IsAvailable = true },
-                new Apartment { OwnerId = "2", Name = "Apartment4", IsAvailable = false },
-                new Apartment { OwnerId = "2", Name = "Apartment5", IsAvailable = true },
-                new Apartment { OwnerId = "2", Name = "Apartment6", IsAvailable = false },
-                new Apartment { OwnerId = "3", Name = "Apartment7", IsAvailable = true },
+                new Apartment { OwnerId = "1", Name = "Apartment1", IsAvailable = true, Address = "Αισώπου 3, Νέο Καρλόβασι, Σάμος", Price = 230.00, FloorArea = 35.00, Rooms = 2, Year = 2004, Description = "Το σπίτι γαμάη ψήστο! Έχει και ερκοδίσο!", RoomType = RoomType.Single},
+                new Apartment { OwnerId = "1", Name = "Apartment1", IsAvailable = true, Address = "Αισώπου 3, Νέο Καρλόβασι, Σάμος", Price = 230.00, FloorArea = 35.00, Rooms = 2, Year = 2004, Description = "Το σπίτι γαμάη ψήστο! Έχει και ερκοδίσο!", RoomType = RoomType.Single},
+                new Apartment { OwnerId = "1", Name = "Apartment1", IsAvailable = true, Address = "Αισώπου 3, Νέο Καρλόβασι, Σάμος", Price = 230.00, FloorArea = 35.00, Rooms = 2, Year = 2004, Description = "Το σπίτι γαμάη ψήστο! Έχει και ερκοδίσο!", RoomType = RoomType.Single},
+                new Apartment { OwnerId = "1", Name = "Apartment1", IsAvailable = true, Address = "Αισώπου 3, Νέο Καρλόβασι, Σάμος", Price = 230.00, FloorArea = 35.00, Rooms = 2, Year = 2004, Description = "Το σπίτι γαμάη ψήστο! Έχει και ερκοδίσο!", RoomType = RoomType.Single},
+                new Apartment { OwnerId = "1", Name = "Apartment1", IsAvailable = true, Address = "Αισώπου 3, Νέο Καρλόβασι, Σάμος", Price = 230.00, FloorArea = 35.00, Rooms = 2, Year = 2004, Description = "Το σπίτι γαμάη ψήστο! Έχει και ερκοδίσο!", RoomType = RoomType.Single},
+                new Apartment { OwnerId = "1", Name = "Apartment1", IsAvailable = true, Address = "Αισώπου 3, Νέο Καρλόβασι, Σάμος", Price = 230.00, FloorArea = 35.00, Rooms = 2, Year = 2004, Description = "Το σπίτι γαμάη ψήστο! Έχει και ερκοδίσο!", RoomType = RoomType.Single},
+                new Apartment { OwnerId = "1", Name = "Apartment1", IsAvailable = true, Address = "Αισώπου 3, Νέο Καρλόβασι, Σάμος", Price = 230.00, FloorArea = 35.00, Rooms = 2, Year = 2004, Description = "Το σπίτι γαμάη ψήστο! Έχει και ερκοδίσο!", RoomType = RoomType.Single}
             };
         }
 

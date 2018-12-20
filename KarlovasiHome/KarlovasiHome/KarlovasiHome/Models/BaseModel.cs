@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
+using SQLite;
 
 namespace KarlovasiHome.Models
 {
@@ -8,6 +9,7 @@ namespace KarlovasiHome.Models
     {
         private string _id;
 
+        [PrimaryKey]
         [JsonProperty("id")]
         public string Id
         {
