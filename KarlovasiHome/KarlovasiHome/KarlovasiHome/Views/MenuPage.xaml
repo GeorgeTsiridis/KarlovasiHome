@@ -19,7 +19,7 @@
             </circleImage:CircleImage>
             <StackLayout BackgroundColor="Black" HeightRequest="2" VerticalOptions="End"/>
         </Grid>
-        <ListView x:Name="ListViewMenu" HasUnevenRows="True" ItemsSource="{Binding MenuItems}" ItemTapped="ListViewMenu_OnItemTapped">
+        <ListView x:Name="MenuListView" HasUnevenRows="True" ItemsSource="{Binding MenuItems}" ItemTapped="MenuListView_OnItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

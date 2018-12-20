@@ -1,27 +1,23 @@
 ﻿using System;
 using KarlovasiHome.Models;
-using KarlovasiHome.ViewModels;
+using KarlovasiHome.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace KarlovasiHome.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignUpPage : ContentPage
+    public partial class NewAppartmentPage : ContentPage
     {
-        private SignUpViewModel _suvm;
+        private DataService DataService = App.DataService;
 
-        public SignUpPage()
+        public NewAppartmentPage()
         {
             InitializeComponent();
-
-            _suvm = (SignUpViewModel) BindingContext;
         }
         
         private void SignUp_OnClicked(object sender, EventArgs e)
         {
-            //checks
-
             var user = new User
             {
                 Username = UsernameEntry.Text,
@@ -29,7 +25,7 @@ namespace KarlovasiHome.Views
                 UserType = (UserType) RadioGroup.SelectedIndex
             };
 
-            _suvm.DataService.InsertUser(user);
+            DataService.InsertUser(user);
         }
     }
 }

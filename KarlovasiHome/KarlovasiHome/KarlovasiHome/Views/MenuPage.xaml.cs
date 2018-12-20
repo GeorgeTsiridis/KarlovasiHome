@@ -17,13 +17,13 @@ namespace KarlovasiHome.Views
             RootPage = rootPage;
         }
 
-        private void ListViewMenu_OnItemTapped(object sender, ItemTappedEventArgs e)
+        private void MenuListView_OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
                 return;
 
             var type = ((HomeMenuItem) e.Item).Type;
-            ListViewMenu.SelectedItem = null;
+            MenuListView.SelectedItem = null;
             RootPage.NavigateFromMenu(type);
         }
 

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
              xmlns:pscr="clr-namespace:PSC.Xam.Controls.BindableRadioButton;assembly=PSC.Xam.Controls.BindableRadioButton"
-             x:Class="KarlovasiHome.Views.SignUpPage"
+             x:Class="KarlovasiHome.Views.NewAppartmentPage"
              Title="">
 
     <ContentPage.BindingContext>
