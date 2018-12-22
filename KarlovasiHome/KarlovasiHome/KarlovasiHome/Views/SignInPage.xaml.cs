@@ -18,8 +18,11 @@ namespace KarlovasiHome.Views
             _bvvm = (BaseViewModel) BindingContext;
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
+            var users = await _bvvm.DataService.UserDatabase.ToListAsync();
+            var apartments = await _bvvm.DataService.ApartmentDatabase.ToListAsync();
+
             UsernameEntry.Text = "";
             PasswordEntry.Text = "";
         }

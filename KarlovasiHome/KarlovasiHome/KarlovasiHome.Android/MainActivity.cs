@@ -27,7 +27,7 @@ namespace KarlovasiHome.Droid
 
         public string DatabaseFolder()
         {
-            return Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ToDoItemSQLite.db3");
+            return Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "KarlovasiHome.db3");
         }
     }
 }

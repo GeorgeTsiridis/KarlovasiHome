@@ -15,7 +15,7 @@ namespace KarlovasiHome.Models
         private int _year;
         private string _description;
         private RoomType _roomType;
-        private List<Bitmap> _images;
+        //private List<Bitmap> _images;
 
         public string OwnerId
         {
@@ -117,7 +117,7 @@ namespace KarlovasiHome.Models
             }
         }
 
-        public List<Bitmap> Images
+        /*public List<Bitmap> Images
         {
             get { return _images; }
             set
@@ -125,7 +125,7 @@ namespace KarlovasiHome.Models
                 _images = value;
                 OnPropertyChanged(nameof(Images));
             }
-        }
+        }*/
     }
 
     public enum RoomType

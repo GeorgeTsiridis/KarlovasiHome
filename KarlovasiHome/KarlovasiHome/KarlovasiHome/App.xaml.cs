@@ -10,18 +10,13 @@ namespace KarlovasiHome
     public partial class App : Application
     {
         public static DataService DataService { get; set; }
-        public static ItemDatabase ItemDatabase { get; set; }
         public static ISqliteManage SqliteManage { get; set; }
-        public static ItemController ItemController { get; set; }
 
         public App()
         {
             InitializeComponent();
 
-            ItemDatabase = new ItemDatabase(SqliteManage.DatabaseFolder());
-            ItemController = new ItemController();
-
-            DataService = new DataService();
+            DataService = new DataService(SqliteManage.DatabaseFolder());
 
             MainPage = new SignInPage();
         }

@@ -21,7 +21,7 @@ namespace KarlovasiHome.Views
         private void SignUp_OnClicked(object sender, EventArgs e)
         {
             //checks
-
+            //check if username exists
             var user = new User
             {
                 Username = UsernameEntry.Text,
