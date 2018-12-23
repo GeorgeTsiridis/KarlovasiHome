@@ -132,6 +132,7 @@ namespace KarlovasiHome.Models
     {
         Single,
         Dual,
-        Triple
+        Triple,
+        Other
     }
 }

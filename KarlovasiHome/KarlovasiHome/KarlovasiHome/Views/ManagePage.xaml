@@ -18,7 +18,7 @@
         <ToolbarItem Icon="add.png" Clicked="Add_OnClicked"/>
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="ApartmentsListView" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding DataService.Apartments}" ItemTapped="ApartmentsListView_OnItemTapped">
+    <ListView x:Name="ApartmentsListView" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding Apartments}" ItemTapped="ApartmentsListView_OnItemTapped">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>

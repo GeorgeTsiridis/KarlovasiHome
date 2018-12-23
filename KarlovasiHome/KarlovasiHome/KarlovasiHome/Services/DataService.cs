@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Linq;
 using KarlovasiHome.Models;
 using SQLite;
 
@@ -23,25 +22,10 @@ namespace KarlovasiHome.Services
 
         public bool SignIn(string username, string password)
         {//hash password
-            if (!MockUsers.Any(x => x.Username == username && x.Password == password))
+            if (!Users.Any(x => x.Username == username && x.Password == password))
                 return false;
 
-            User = MockUsers.FirstOrDefault(x => x.Username == username);
-            LoadUserInfo();
-            return true;
-        }
-
-        public void LoadUserInfo()
-        {
-            Apartments = new ObservableCollection<Apartment>(MockApartments.Where(x => x.OwnerId == User.Id));
-        }
-
-        public bool InsertUser(User user)
-        {
-            if (MockUsers.Any(x => x.Username == user.Username))
-                return false;
-            //id + hash password
-            MockUsers.Add(user);
+            User = Users.FirstOrDefault(x => x.Username == username);
             return true;
         }
     }

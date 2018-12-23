@@ -7,31 +7,25 @@
              Title="">
 
     <ContentPage.BindingContext>
-        <viewModels:SignUpViewModel/>
+        <viewModels:NewApartmentViewModel/>
     </ContentPage.BindingContext>
 
     <ScrollView>
         <StackLayout>
-            <Entry x:Name="UsernameEntry" Placeholder="Username"/>
-
             <Entry x:Name="NameEntry" Placeholder="Όνομα"/>
-
-            <Entry x:Name="LastnameEntry" Placeholder="Επίθετο"/>
+            <Entry x:Name="AddressEntry" Placeholder="Διεύθυνση"/>
+            <Entry x:Name="PriceEntry" Placeholder="Τιμή" Keyboard="Numeric"/>
+            <Entry x:Name="FloorAreaEntry" Placeholder="Εμβαδόν" Keyboard="Numeric"/>
+            <Entry x:Name="RoomsEntry" Placeholder="Δωμάτια" Keyboard="Numeric"/>
+            <Entry x:Name="YearEntry" Placeholder="Έτος Κατασκευής" Keyboard="Numeric"/>
+            <Entry x:Name="DescriptionEntry" Placeholder="Περιγραφή"/>
 
             <StackLayout Orientation="Horizontal">
-                <Label Text="Είμαι" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Label Text="Είδος Δωματίου" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             </StackLayout>
 
-            <Entry x:Name="PhoneEntry" Placeholder="Τηλέφωνο" Keyboard="Numeric"/>
-
-            <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email"/>
-
-            <Entry x:Name="PasswordEntry" Placeholder="Κωδικός"/>
-
-            <Entry x:Name="RenterPasswordEntry" Placeholder="Επαλήθευση Κωδικού"/>
-
-            <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
+            <Button Text="Προσθήκη" Clicked="Add_OnClicked"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

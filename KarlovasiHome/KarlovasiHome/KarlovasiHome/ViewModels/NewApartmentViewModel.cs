@@ -2,7 +2,7 @@
 
 namespace KarlovasiHome.ViewModels
 {
-    public class NewApartmentViewModel
+    public class NewApartmentViewModel : BaseViewModel
     {
         public Dictionary<int, string> RadioButtons { get; set; }
 
@@ -10,8 +10,10 @@ namespace KarlovasiHome.ViewModels
         {
             RadioButtons = new Dictionary<int, string>
             {
-                {0, "Ιδιοκτήτης"},
-                {1, "Ενοικιαστής"}
+                {0, "Γκαρσονιέρα"},
+                {1, "Δυάρι"},
+                {2, "Τριάρι"},
+                {3, "Άλλο"}
             };
         }
     }

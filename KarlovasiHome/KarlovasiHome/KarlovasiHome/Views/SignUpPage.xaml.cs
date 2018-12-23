@@ -18,7 +18,7 @@ namespace KarlovasiHome.Views
             _suvm = (SignUpViewModel) BindingContext;
         }
         
-        private void SignUp_OnClicked(object sender, EventArgs e)
+        private async void SignUp_OnClicked(object sender, EventArgs e)
         {
             //checks
             //check if username exists
@@ -29,7 +29,8 @@ namespace KarlovasiHome.Views
                 UserType = (UserType) RadioGroup.SelectedIndex
             };
 
-            _suvm.DataService.InsertUser(user);
+            await _suvm.DataService.InsertItem(user);
+            await Navigation.PopModalAsync();
         }
     }
 }

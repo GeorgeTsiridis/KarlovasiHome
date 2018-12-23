@@ -20,8 +20,7 @@ namespace KarlovasiHome.Views
 
         protected override async void OnAppearing()
         {
-            var users = await _bvvm.DataService.UserDatabase.ToListAsync();
-            var apartments = await _bvvm.DataService.ApartmentDatabase.ToListAsync();
+            await _bvvm.DataService.LoadLists();
 
             UsernameEntry.Text = "";
             PasswordEntry.Text = "";

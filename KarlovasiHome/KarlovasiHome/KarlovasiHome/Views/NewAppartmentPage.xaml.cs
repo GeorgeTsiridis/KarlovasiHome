@@ -1,6 +1,7 @@
 ﻿using System;
 using KarlovasiHome.Models;
 using KarlovasiHome.Services;
+using KarlovasiHome.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,23 +10,23 @@ namespace KarlovasiHome.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewAppartmentPage : ContentPage
     {
-        private DataService DataService = App.DataService;
+        private NewApartmentViewModel _navm;
 
         public NewAppartmentPage()
         {
             InitializeComponent();
+
+            _navm = (NewApartmentViewModel) BindingContext;
         }
-        
-        private void SignUp_OnClicked(object sender, EventArgs e)
+
+        private async void Add_OnClicked(object sender, EventArgs e)
         {
-            var user = new User
+            var apartment = new Apartment
             {
-                Username = UsernameEntry.Text,
-                Password = PasswordEntry.Text,
-                UserType = (UserType) RadioGroup.SelectedIndex
+                OwnerId = _navm.DataService.User.Id
             };
 
-            DataService.InsertUser(user);
+            await _navm.DataService.InsertItem(apartment);
         }
     }
 }

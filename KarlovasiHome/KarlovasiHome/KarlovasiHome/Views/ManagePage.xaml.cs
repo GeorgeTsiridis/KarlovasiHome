@@ -12,9 +12,9 @@ namespace KarlovasiHome.Views
             InitializeComponent();
         }
 
-        private void Add_OnClicked(object sender, EventArgs e)
+        private async void Add_OnClicked(object sender, EventArgs e)
         {
-            // add apartment page
+            await Navigation.PushAsync(new NewAppartmentPage());
         }
 
         private void ApartmentsListView_OnItemTapped(object sender, ItemTappedEventArgs e)

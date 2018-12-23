@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -12,11 +12,10 @@ namespace KarlovasiHome.Services
     {
         private User _user;
         private List<User> _users;
-        private ObservableCollection<Apartment> _favorites;
-        private ObservableCollection<Apartment> _apartments;
+        private List<Apartment> _favorites;
+        private List<Apartment> _apartments;
 
         private SQLiteAsyncConnection _database;
-
         public AsyncTableQuery<User> UserDatabase { get; set; }
         public AsyncTableQuery<Apartment> ApartmentDatabase { get; set; }
         public AsyncTableQuery<Favorite> FavoriteDatabase { get; set; }
@@ -56,21 +55,32 @@ namespace KarlovasiHome.Services
                 await InsertItem(apartment);
         }
 
+        public async Task LoadLists()
+        {
+            Users = await UserDatabase.ToListAsync();
+            Apartments = await ApartmentDatabase.ToListAsync();
+        }
+
         public Task<int> InsertItem(User user)
         {
+            user.Id = Guid.NewGuid().ToString();
+            LoadLists();
             return Database.InsertAsync(user);
         }
 
         public Task<int> InsertItem(Apartment apartment)
         {
+            apartment.Id = Guid.NewGuid().ToString();
+            LoadLists();
             return Database.InsertAsync(apartment);
         }
 
         public Task<int> InsertItem(Favorite favorite)
         {
+            favorite.Id = Guid.NewGuid().ToString();
+            LoadLists();
             return Database.InsertAsync(favorite);
         }
-
 
         public SQLiteAsyncConnection Database
         {
@@ -104,7 +114,7 @@ namespace KarlovasiHome.Services
             }
         }
 
-        public ObservableCollection<Apartment> Favorites
+        public List<Apartment> Favorites
         {
             get { return _favorites; }
             set
@@ -114,7 +124,7 @@ namespace KarlovasiHome.Services
             }
         }
 
-        public ObservableCollection<Apartment> Apartments
+        public List<Apartment> Apartments
         {
             get { return _apartments; }
             set
