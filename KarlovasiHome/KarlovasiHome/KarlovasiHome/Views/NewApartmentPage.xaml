@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
+             xmlns:pscr="clr-namespace:PSC.Xam.Controls.BindableRadioButton;assembly=PSC.Xam.Controls.BindableRadioButton"
+             x:Class="KarlovasiHome.Views.NewApartmentPage"
+             Title="">
+
+    <ContentPage.BindingContext>
+        <viewModels:NewApartmentViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout>
+            <Entry x:Name="NameEntry" Placeholder="Όνομα"/>
+            <Entry x:Name="AddressEntry" Placeholder="Διεύθυνση"/>
+            <Entry x:Name="PriceEntry" Placeholder="Τιμή" Keyboard="Numeric"/>
+            <Entry x:Name="FloorAreaEntry" Placeholder="Εμβαδόν" Keyboard="Numeric"/>
+            <Entry x:Name="RoomsEntry" Placeholder="Δωμάτια" Keyboard="Numeric"/>
+            <Entry x:Name="YearEntry" Placeholder="Έτος Κατασκευής" Keyboard="Numeric"/>
+            <Entry x:Name="DescriptionEntry" Placeholder="Περιγραφή"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Είδος Δωματίου" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <Button Text="Προσθήκη" Clicked="Add_OnClicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

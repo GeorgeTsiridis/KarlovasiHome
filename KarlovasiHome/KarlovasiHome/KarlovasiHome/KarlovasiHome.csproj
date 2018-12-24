@@ -37,11 +37,14 @@
     <Compile Update="Views\FeedPage.xaml.cs">
       <DependentUpon>FeedPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\EditApartmentPage.xaml.cs">
+      <DependentUpon>EditApartmentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\NewAppartmentPage.xaml.cs">
-      <DependentUpon>NewAppartmentPage.xaml</DependentUpon>
+    <Compile Update="Views\NewApartmentPage.xaml.cs">
+      <DependentUpon>NewApartmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>

@@ -1,6 +1,5 @@
 ﻿using System;
 using KarlovasiHome.Models;
-using KarlovasiHome.Services;
 using KarlovasiHome.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -8,14 +7,16 @@ using Xamarin.Forms.Xaml;
 namespace KarlovasiHome.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewAppartmentPage : ContentPage
+    public partial class EditApartmentPage : ContentPage
     {
+        private Apartment _apartment;
         private NewApartmentViewModel _navm;
 
-        public NewAppartmentPage()
+        public EditApartmentPage(Apartment apartment)
         {
             InitializeComponent();
 
+            _apartment = apartment;
             _navm = (NewApartmentViewModel) BindingContext;
         }
 

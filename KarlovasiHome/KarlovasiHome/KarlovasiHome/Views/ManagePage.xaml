@@ -35,9 +35,9 @@
 
                                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                                     <StackLayout>
-                                        <Label Grid.Row="0" Grid.Column="0" Text="Τιμή" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                        <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-                                            <Label Text="{Binding Price}" FontSize="Medium" FontAttributes="Bold"/>
+                                        <Label Text="Τιμή" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Price, StringFormat='{0:C2}'}" FontSize="Medium" FontAttributes="Bold"/>
                                             <Label Text="€" FontSize="Medium" FontAttributes="Bold"/>
                                         </StackLayout>
                                     </StackLayout>
