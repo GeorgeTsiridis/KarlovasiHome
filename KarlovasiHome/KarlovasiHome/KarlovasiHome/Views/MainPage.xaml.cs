@@ -1,4 +1,8 @@
-﻿using KarlovasiHome.Models;
+﻿using System.Threading.Tasks;
+using Android.Content;
+using Android.Locations;
+using Android.Provider;
+using KarlovasiHome.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +21,7 @@ namespace KarlovasiHome.Views
             MasterBehavior = MasterBehavior.Popover;
         }
 
-        public void NavigateFromMenu(MenuItemType type)
+        public async void NavigateFromMenu(MenuItemType type)
         {
             Page page = null;
             switch (type)
@@ -29,6 +33,13 @@ namespace KarlovasiHome.Views
                     page = new NavigationPage(new FeedPage());
                     break;
                 case MenuItemType.Map:
+                    while (!App.LocationChecker.CheckLocation())
+                    {
+                        if (!await DisplayAlert(null, "Ενεργοποιείστε την τοποθεσίας της συσκευής σας.", "ΟΚ", "Άκυρο"))
+                        {
+                            return;
+                        }
+                    }
                     page = new NavigationPage(new MapPage());
                     break;
                 case MenuItemType.Manage:
@@ -45,6 +56,20 @@ namespace KarlovasiHome.Views
 
                 IsPresented = false;
             }
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                if (IsPresented)
+                    IsPresented = false;
+                else
+                    if (await DisplayAlert(null, "Έξοδος;", "ΟΚ", "Άκυρο"))
+                        await Navigation.PopModalAsync();
+            });
+
+            return true;
         }
     }
 }

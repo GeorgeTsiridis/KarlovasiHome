@@ -1,5 +1,4 @@
 ﻿using System;
-using KarlovasiHome.Services;
 using KarlovasiHome.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

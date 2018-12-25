@@ -63,21 +63,21 @@ namespace KarlovasiHome.Services
 
         public Task<int> InsertItem(User user)
         {
-            user.Id = Guid.NewGuid().ToString();
+            //user.Id = Guid.NewGuid().ToString();
             LoadLists();
             return Database.InsertAsync(user);
         }
 
         public Task<int> InsertItem(Apartment apartment)
         {
-            apartment.Id = Guid.NewGuid().ToString();
+            //apartment.Id = Guid.NewGuid().ToString();
             LoadLists();
             return Database.InsertAsync(apartment);
         }
 
         public Task<int> InsertItem(Favorite favorite)
         {
-            favorite.Id = Guid.NewGuid().ToString();
+            //favorite.Id = Guid.NewGuid().ToString();
             LoadLists();
             return Database.InsertAsync(favorite);
         }
