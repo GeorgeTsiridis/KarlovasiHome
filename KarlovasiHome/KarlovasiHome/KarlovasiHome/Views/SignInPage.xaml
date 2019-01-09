@@ -6,14 +6,14 @@
              Title="">
 
     <ContentPage.BindingContext>
-        <viewModels:BaseViewModel/>
+        <viewModels:SignInViewModel/>
     </ContentPage.BindingContext>
 
     <StackLayout VerticalOptions="CenterAndExpand">
         <Label Text="Username"/>
-        <Entry x:Name="UsernameEntry"/>
+        <Entry x:Name="UsernameEntry" Text=""/>
         <Label Text="Κωδικός"/>
-        <Entry x:Name="PasswordEntry"/>
+        <Entry x:Name="PasswordEntry" Text=""/>
         <Button Text="Είσοδος" Clicked="SignIn_OnClicked"/>
         <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
     </StackLayout>

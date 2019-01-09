@@ -10,7 +10,7 @@ namespace KarlovasiHome.ViewModels
 
         public ManageViewModel()
         {
-            Apartments = new ObservableCollection<Apartment>(DataService.Apartments.Where(x => x.OwnerId == DataService.User.Id));
+            //Apartments = new ObservableCollection<Apartment>(DataService.Apartments.Where(x => x.OwnerId == DataService.User.Id));
         }
 
         public ObservableCollection<Apartment> Apartments

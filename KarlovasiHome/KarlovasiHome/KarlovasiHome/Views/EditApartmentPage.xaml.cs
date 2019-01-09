@@ -27,7 +27,7 @@ namespace KarlovasiHome.Views
                 OwnerId = _navm.DataService.User.Id
             };
 
-            await _navm.DataService.InsertItem(apartment);
+            //await _navm.DataService.InsertItem(apartment);
         }
     }
 }

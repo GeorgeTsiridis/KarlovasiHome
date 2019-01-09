@@ -4,7 +4,7 @@
     {
         private string _username;
         private string _password;
-        private string _name;
+        private string _firstName;
         private string _lastName;
         private string _phone;
         private string _email;
@@ -30,13 +30,13 @@
             }
         }
 
-        public string Name
+        public string FirstName
         {
-            get { return _name; }
+            get { return _firstName; }
             set
             {
-                _name = value;
-                OnPropertyChanged(nameof(Name));
+                _firstName = value;
+                OnPropertyChanged(nameof(FirstName));
             }
         }
 

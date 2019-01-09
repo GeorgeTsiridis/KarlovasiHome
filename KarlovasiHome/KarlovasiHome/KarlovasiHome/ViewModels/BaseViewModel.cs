@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Text;
 using KarlovasiHome.Services;
 
 namespace KarlovasiHome.ViewModels
@@ -21,6 +23,14 @@ namespace KarlovasiHome.ViewModels
                 _dataService = value;
                 OnPropertyChanged(nameof(DataService));
             }
+        }
+
+        public string Hash(string password)
+        {
+            var sb = new StringBuilder();
+            foreach (var b in SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(password)))
+                sb.Append(b.ToString("x2"));
+            return sb.ToString();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

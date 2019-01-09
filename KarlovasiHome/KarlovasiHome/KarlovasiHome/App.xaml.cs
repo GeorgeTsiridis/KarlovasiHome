@@ -1,6 +1,5 @@
 ﻿using KarlovasiHome.Models;
 using KarlovasiHome.Services;
-using KarlovasiHome.SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using KarlovasiHome.Views;
@@ -11,21 +10,19 @@ namespace KarlovasiHome
     public partial class App : Application
     {
         public static DataService DataService { get; set; }
-        public static ISqliteManage SqliteManager { get; set; }
         public static ILocationCheck LocationChecker { get; set; }
 
         public App()
         {
             InitializeComponent();
 
-            DataService = new DataService(SqliteManager.DatabaseFolder());
+            DataService = new DataService();
 
             MainPage = new SignInPage();
         }
 
-        public static void Init(ISqliteManage sqliteManager, ILocationCheck locationChecker)
+        public static void Init(ILocationCheck locationChecker)
         {
-            SqliteManager = sqliteManager;
             LocationChecker = locationChecker;
         }
 

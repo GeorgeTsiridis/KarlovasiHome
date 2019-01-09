@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using KarlovasiHome.Models;
 
 namespace KarlovasiHome.ViewModels
 {
@@ -13,6 +16,14 @@ namespace KarlovasiHome.ViewModels
                 { 0, "Ιδιοκτήτης" },
                 { 1, "Ενοικιαστής" }
             };
+        }
+
+        public async Task SignUp(User user)
+        {
+            user.Id = Guid.NewGuid().ToString();
+            user.Password = Hash(user.Password);
+
+            await DataService.SyncUsers.InsertAsync(user);
         }
     }
 }

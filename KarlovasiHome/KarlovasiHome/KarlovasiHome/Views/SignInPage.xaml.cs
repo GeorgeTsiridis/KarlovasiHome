@@ -8,32 +8,36 @@ namespace KarlovasiHome.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignInPage : ContentPage
     {
-        private BaseViewModel _bvvm;
+        private readonly SignInViewModel _sivm;
 
         public SignInPage()
         {
             InitializeComponent();
 
-            _bvvm = (BaseViewModel) BindingContext;
+            _sivm = (SignInViewModel) BindingContext;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
-            await _bvvm.DataService.LoadLists();
-
             UsernameEntry.Text = "";
             PasswordEntry.Text = "";
         }
 
         private async void SignIn_OnClicked(object sender, EventArgs e)
         {
+            if (!_sivm.DataService.Init.IsCompleted)
+            {
+                await DisplayAlert(null, "Παρακαλώ περιμένετε!", "OK");
+                return;
+            }
+
             var username = UsernameEntry.Text;
             var password = PasswordEntry.Text;
-
-            if (_bvvm.DataService.SignIn(username, password))
+            
+            if (_sivm.SignIn(username, password))
                 await Navigation.PushModalAsync(new MainPage());
             else
-                await DisplayAlert(null, "Wrong username or password!", "OK");
+                await DisplayAlert(null, "Λάθος username ή κωδικός πρόσβασης!", "OK");
         }
 
         private async void SignUp_OnClicked(object sender, EventArgs e)

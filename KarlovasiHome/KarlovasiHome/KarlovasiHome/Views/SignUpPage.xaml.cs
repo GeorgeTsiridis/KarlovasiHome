@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using KarlovasiHome.Models;
 using KarlovasiHome.ViewModels;
 using Xamarin.Forms;
@@ -9,7 +10,7 @@ namespace KarlovasiHome.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignUpPage : ContentPage
     {
-        private SignUpViewModel _suvm;
+        private readonly SignUpViewModel _suvm;
 
         public SignUpPage()
         {
@@ -19,17 +20,56 @@ namespace KarlovasiHome.Views
         }
         
         private async void SignUp_OnClicked(object sender, EventArgs e)
-        {
-            //checks
-            //check if username exists
+        {/*
+            if (UsernameEntry.Text == "" ||
+                NameEntry.Text == "" ||
+                LastNameEntry.Text == "" ||
+                PhoneEntry.Text == "" ||
+                EmailEntry.Text == "" ||
+                PasswordEntry.Text == "")
+            {
+                await DisplayAlert(null, "Παρακαλώ συμπληρώστε όλα τα πεδία!", "OK");
+                return;
+            }
+            */
+            if (RadioGroup.SelectedIndex == -1)
+            {
+                await DisplayAlert(null, "Παρακαλώ επιλέξτε είδος λογαριασμού!", "OK");
+                return;
+            }
+
+            if (PasswordEntry.Text != RenterPasswordEntry.Text)
+            {
+                await DisplayAlert(null, "Οι κωδικοί πρόσβασης δεν ταιριάζουν!", "OK");
+                return;
+            }
+
+            if (!_suvm.DataService.Init.IsCompleted)
+            {
+                await DisplayAlert(null, "Παρακαλώ περιμένετε!", "OK");
+                return;
+            }
+
+            if (_suvm.DataService.Users.Any(x => x.Username == UsernameEntry.Text))
+            {
+                await DisplayAlert(null, "Το username υπάρχει ήδη!", "OK");
+                return;
+            }
+
             var user = new User
             {
                 Username = UsernameEntry.Text,
                 Password = PasswordEntry.Text,
+                FirstName = PasswordEntry.Text,
+                LastName = LastNameEntry.Text,
+                Phone = PhoneEntry.Text,
+                Email = EmailEntry.Text,
                 UserType = (UserType) RadioGroup.SelectedIndex
             };
 
-            await _suvm.DataService.InsertItem(user);
+            await _suvm.SignUp(user);
+            await DisplayAlert(null, "Επιτυχής εγγραφή χρήστη!", "OK");
+
             await Navigation.PopModalAsync();
         }
     }
