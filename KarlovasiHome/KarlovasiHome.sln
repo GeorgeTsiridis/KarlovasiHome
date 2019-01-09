@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarlovasiHome.Android", "Ka
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KarlovasiHome", "KarlovasiHome\KarlovasiHome\KarlovasiHome.csproj", "{0B177BEF-342B-4F64-866C-AEC5FDCD15E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "karlovasihomeService", "karlovasihomeService\karlovasihomeService.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarlovasiHomeService", "KarlovasiHomeService\KarlovasiHomeService.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

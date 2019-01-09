@@ -1,6 +1,6 @@
 ﻿using Microsoft.Azure.Mobile.Server;
 
-namespace karlovasihomeService.DataObjects
+namespace KarlovasiHomeService.DataObjects
 {
     public class Favorite : EntityData
     {

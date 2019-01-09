@@ -4,10 +4,11 @@ using System.Web.Http;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Authentication;
 using Microsoft.Azure.Mobile.Server.Config;
-using karlovasihomeService.Models;
+using KarlovasiHomeService.DataObjects;
+using KarlovasiHomeService.Models;
 using Owin;
 
-namespace karlovasihomeService
+namespace KarlovasiHomeService
 {
     public partial class Startup
     {
@@ -18,7 +19,7 @@ namespace karlovasihomeService
 
             new MobileAppConfiguration().UseDefaultConfiguration().ApplyTo(config);
 
-            Database.SetInitializer(new karlovasihomeInitializer());
+            Database.SetInitializer(new KarlovasiHomeInitializer());
 
             MobileAppSettingsDictionary settings = config.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
@@ -36,8 +37,8 @@ namespace karlovasihomeService
         }
     }
 
-    public class karlovasihomeInitializer : CreateDatabaseIfNotExists<karlovasihomeContext>
+    public class KarlovasiHomeInitializer : CreateDatabaseIfNotExists<KarlovasiHomeContext>
     {
-
+        
     }
 }

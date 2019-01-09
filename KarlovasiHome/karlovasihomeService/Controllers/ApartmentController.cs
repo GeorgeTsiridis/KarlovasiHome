@@ -3,18 +3,18 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
-using karlovasihomeService.DataObjects;
-using karlovasihomeService.Models;
 using Microsoft.Azure.Mobile.Server;
+using KarlovasiHomeService.DataObjects;
+using KarlovasiHomeService.Models;
 
-namespace karlovasihomeService.Controllers
+namespace KarlovasiHomeService.Controllers
 {
     public class ApartmentController : TableController<Apartment>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
-            karlovasihomeContext context = new karlovasihomeContext();
+            KarlovasiHomeContext context = new KarlovasiHomeContext();
             DomainManager = new EntityDomainManager<Apartment>(context, Request);
         }
 

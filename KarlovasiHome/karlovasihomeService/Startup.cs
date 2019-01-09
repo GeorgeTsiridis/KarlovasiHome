@@ -1,9 +1,9 @@
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(karlovasihomeService.Startup))]
+[assembly: OwinStartup(typeof(KarlovasiHomeService.Startup))]
 
-namespace karlovasihomeService
+namespace KarlovasiHomeService
 {
     public partial class Startup
     {

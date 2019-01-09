@@ -1,16 +1,16 @@
 ﻿using Microsoft.Azure.Mobile.Server;
 
-namespace karlovasihomeService.DataObjects
+namespace KarlovasiHomeService.DataObjects
 {
     public class User : EntityData
     {
-        private string Username { get; set; }
-        private string Password { get; set; }
-        private string FirstName { get; set; }
-        private string LastName { get; set; }
-        private string Phone { get; set; }
-        private string Email { get; set; }
-        private UserType UserType { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public UserType UserType { get; set; }
     }
 
     public enum UserType

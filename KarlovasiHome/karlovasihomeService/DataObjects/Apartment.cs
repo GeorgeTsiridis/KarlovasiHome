@@ -1,6 +1,6 @@
 ﻿using Microsoft.Azure.Mobile.Server;
 
-namespace karlovasihomeService.DataObjects
+namespace KarlovasiHomeService.DataObjects
 {
     public class Apartment : EntityData
     {
@@ -14,7 +14,6 @@ namespace karlovasihomeService.DataObjects
         public int Year { get; set; }
         public string Description { get; set; }
         public RoomType RoomType { get; set; }
-        //private List<Bitmap> _images;
     }
 
     public enum RoomType

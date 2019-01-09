@@ -2,18 +2,18 @@
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using Microsoft.Azure.Mobile.Server.Tables;
-using karlovasihomeService.DataObjects;
+using KarlovasiHomeService.DataObjects;
 
-namespace karlovasihomeService.Models
+namespace KarlovasiHomeService.Models
 {
-    public class karlovasihomeContext : DbContext
+    public class KarlovasiHomeContext : DbContext
     {
         private const string connectionStringName = "Name=MS_TableConnectionString";
 
-        public karlovasihomeContext() : base(connectionStringName)
+        public KarlovasiHomeContext() : base(connectionStringName)
         {
 
-        }
+        } 
 
         public DbSet<User> Users { get; set; }
         public DbSet<Apartment> Apartments { get; set; }
