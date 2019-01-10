@@ -1,17 +1,15 @@
-﻿using System.IO;
-using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Locations;
 using Android.OS;
 using ImageCircle.Forms.Plugin.Droid;
-using KarlovasiHome.Models;
+using Xamarin;
 using Xamarin.Forms;
+using Plugin.CurrentActivity;
 
 namespace KarlovasiHome.Droid
 {
     [Activity(Label = "KarlovasiHome", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity, ILocationCheck
+    public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -20,18 +18,12 @@ namespace KarlovasiHome.Droid
 
             base.OnCreate(bundle);
             Forms.Init(this, bundle);
-            Xamarin.FormsMaps.Init(this, bundle);
+
             ImageCircleRenderer.Init();
+            FormsMaps.Init(this, bundle);
+            CrossCurrentActivity.Current.Init(this, bundle);
 
-            App.Init(this);
             LoadApplication(new App());
-        }
-
-        public bool CheckLocation()
-        {
-            LocationManager locationManager = (LocationManager) Forms.Context.GetSystemService(LocationService);
-
-            return locationManager.IsProviderEnabled(LocationManager.GpsProvider);
         }
     }
 }

@@ -44,12 +44,6 @@ namespace KarlovasiHome.Views
                 return;
             }
 
-            if (!_suvm.DataService.Init.IsCompleted)
-            {
-                await DisplayAlert(null, "Παρακαλώ περιμένετε!", "OK");
-                return;
-            }
-
             if (_suvm.DataService.Users.Any(x => x.Username == UsernameEntry.Text))
             {
                 await DisplayAlert(null, "Το username υπάρχει ήδη!", "OK");

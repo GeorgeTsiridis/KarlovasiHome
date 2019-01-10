@@ -10,5 +10,10 @@ namespace KarlovasiHome.Views
         {
             InitializeComponent();
         }
+
+        private void ApartmentsListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            ApartmentsListView.SelectedItem = null;
+        }
     }
 }

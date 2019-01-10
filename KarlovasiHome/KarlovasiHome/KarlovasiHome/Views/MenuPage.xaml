@@ -12,7 +12,7 @@
 
     <StackLayout>
         <Grid HeightRequest="300" BackgroundColor="#f27449">
-            <circleImage:CircleImage HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" BorderThickness="2" BorderColor="Black" Source="http://upload.wikimedia.org/wikipedia/commons/5/55/Tamarin_portrait.JPG">
+            <circleImage:CircleImage HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" BorderThickness="2" BorderColor="Black" Source="https://avatars.servers.getgo.com/2205256774854474505_medium.jpg">
                 <circleImage:CircleImage.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ProfileImage_OnTapped"/>
                 </circleImage:CircleImage.GestureRecognizers>

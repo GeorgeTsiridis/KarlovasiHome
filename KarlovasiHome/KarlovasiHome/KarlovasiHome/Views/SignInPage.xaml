@@ -9,12 +9,16 @@
         <viewModels:SignInViewModel/>
     </ContentPage.BindingContext>
 
-    <StackLayout VerticalOptions="CenterAndExpand">
-        <Label Text="Username"/>
-        <Entry x:Name="UsernameEntry" Text=""/>
-        <Label Text="Κωδικός"/>
-        <Entry x:Name="PasswordEntry" Text=""/>
-        <Button Text="Είσοδος" Clicked="SignIn_OnClicked"/>
-        <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
-    </StackLayout>
+    <Grid>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Label Text="Username"/>
+            <Entry x:Name="UsernameEntry" Text=""/>
+            <Label Text="Κωδικός"/>
+            <Entry x:Name="PasswordEntry" Text=""/>
+            <Button Text="Είσοδος" Clicked="SignIn_OnClicked"/>
+            <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
+        </StackLayout>
+
+        <ActivityIndicator x:Name="Indicator" IsRunning="True" IsVisible="True" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50"/>
+    </Grid>
 </ContentPage>

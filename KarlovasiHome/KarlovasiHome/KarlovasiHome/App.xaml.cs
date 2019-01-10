@@ -10,7 +10,6 @@ namespace KarlovasiHome
     public partial class App : Application
     {
         public static DataService DataService { get; set; }
-        public static ILocationCheck LocationChecker { get; set; }
 
         public App()
         {
@@ -19,11 +18,6 @@ namespace KarlovasiHome
             DataService = new DataService();
 
             MainPage = new SignInPage();
-        }
-
-        public static void Init(ILocationCheck locationChecker)
-        {
-            LocationChecker = locationChecker;
         }
 
         protected override void OnStart()

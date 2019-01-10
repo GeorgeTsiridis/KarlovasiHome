@@ -21,7 +21,7 @@ namespace KarlovasiHome.Views
             MasterBehavior = MasterBehavior.Popover;
         }
 
-        public async void NavigateFromMenu(MenuItemType type)
+        public void NavigateFromMenu(MenuItemType type)
         {
             Page page = null;
             switch (type)
@@ -33,13 +33,6 @@ namespace KarlovasiHome.Views
                     page = new NavigationPage(new FeedPage());
                     break;
                 case MenuItemType.Map:
-                    while (!App.LocationChecker.CheckLocation())
-                    {
-                        if (!await DisplayAlert(null, "Ενεργοποιείστε την τοποθεσίας της συσκευής σας.", "ΟΚ", "Άκυρο"))
-                        {
-                            return;
-                        }
-                    }
                     page = new NavigationPage(new MapPage());
                     break;
                 case MenuItemType.Manage:

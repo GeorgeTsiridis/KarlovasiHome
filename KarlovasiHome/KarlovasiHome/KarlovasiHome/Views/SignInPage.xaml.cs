@@ -21,23 +21,28 @@ namespace KarlovasiHome.Views
         {
             UsernameEntry.Text = "";
             PasswordEntry.Text = "";
+
+            while (!_sivm.DataService.Init.IsCompleted)
+            {
+
+            }
+
+            Indicator.IsVisible = false;
         }
 
         private async void SignIn_OnClicked(object sender, EventArgs e)
         {
-            if (!_sivm.DataService.Init.IsCompleted)
-            {
-                await DisplayAlert(null, "Παρακαλώ περιμένετε!", "OK");
-                return;
-            }
+            Indicator.IsVisible = true;
 
             var username = UsernameEntry.Text;
             var password = PasswordEntry.Text;
             
-            if (_sivm.SignIn(username, password))
+            if (await _sivm.SignIn(username, password))
                 await Navigation.PushModalAsync(new MainPage());
             else
                 await DisplayAlert(null, "Λάθος username ή κωδικός πρόσβασης!", "OK");
+
+            Indicator.IsVisible = false;
         }
 
         private async void SignUp_OnClicked(object sender, EventArgs e)

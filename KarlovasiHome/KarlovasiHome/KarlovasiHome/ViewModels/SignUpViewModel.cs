@@ -24,6 +24,7 @@ namespace KarlovasiHome.ViewModels
             user.Password = Hash(user.Password);
 
             await DataService.SyncUsers.InsertAsync(user);
+            DataService.Users.Add(user);
         }
     }
 }

@@ -29,7 +29,7 @@
                                     <Label Text="Διαθέσιμο" FontSize="Medium" VerticalOptions="Center"/>
                                     <Switch IsToggled="{Binding IsAvailable}" VerticalOptions="Center"/>
                                 </StackLayout>
-                                
+
                                 <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
                                 <Label Text="{Binding Address}" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
 
@@ -41,7 +41,7 @@
                                             <Label Text="€" FontSize="Medium" FontAttributes="Bold"/>
                                         </StackLayout>
                                     </StackLayout>
-                                    
+
                                     <StackLayout>
                                         <Label Grid.Row="0" Grid.Column="1" Text="Εμβαδόν" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
                                         <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
@@ -50,13 +50,13 @@
                                         </StackLayout>
                                     </StackLayout>
 
-                                    
+
                                 </StackLayout>
 
                                 <Label Text="Σχόλια" FontSize="Medium"/>
                                 <Label Text="{Binding Description}" FontSize="Medium"/>
 
-                        </StackLayout>
+                            </StackLayout>
                         </Frame>
                     </Frame>
                 </ViewCell>
@@ -64,4 +64,3 @@
         </ListView.ItemTemplate>
     </ListView>
 </ContentPage>
-<!--   -->

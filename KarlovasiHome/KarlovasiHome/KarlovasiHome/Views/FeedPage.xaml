@@ -1,10 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
              x:Class="KarlovasiHome.Views.FeedPage"
              Title="">
 
-    <StackLayout VerticalOptions="CenterAndExpand">
-        <Label FontSize="50" Text="FeedPage"/>
-    </StackLayout>
+    <ContentPage.BindingContext>
+        <viewModels:FeedViewModel/>
+    </ContentPage.BindingContext>
+
+    <ListView x:Name="ApartmentsListView" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding Apartments}" ItemTapped="ApartmentsListView_OnItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame CornerRadius="20" Padding="5" Margin="5" BackgroundColor="#dddddd" BorderColor="#9d9d9d">
+                        <StackLayout>
+                            <Label Text="{Binding Address}" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                            <Grid HorizontalOptions="CenterAndExpand" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Frame Grid.Column="0" BackgroundColor="#9d9d9d" CornerRadius="20" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Text="Τιμή" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Grid.Row="1" Text="{Binding Price, StringFormat='{0:C2}'}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame Grid.Column="1" BackgroundColor="#9d9d9d" CornerRadius="20" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Text="Έτος Κατασκευής" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                                        <Label Grid.Row="1" Text="{Binding Year}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame Grid.Column="2"  BackgroundColor="#9d9d9d" CornerRadius="20" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Text="Εμβαδόν" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <StackLayout Grid.Row="1"  Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Label Text="{Binding FloorArea}" FontAttributes="Bold" VerticalOptions="Center"/>
+                                            <Label Text="τ.μ." FontAttributes="Bold" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+
+                            <Label Text="Σχόλια" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="End"/>
+                            <Frame CornerRadius="15" BackgroundColor="White" Padding="5">
+                                <Label Text="{Binding Description}" FontSize="Medium"/>
+                            </Frame>
+
+                           <Grid Margin="0, 20, 0, 0">
+                               <Label Text="Επικοινωνία:" HorizontalOptions="Start" VerticalOptions="Center"/>
+                               <StackLayout HorizontalOptions="Center">
+                                    <Label Text="{Binding Phone}" FontAttributes="Bold" VerticalOptions="Center" FontSize="Medium"/>
+                                    <Label Text="{Binding OwnerName}" FontAttributes="Bold" VerticalOptions="Center" FontSize="Medium"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

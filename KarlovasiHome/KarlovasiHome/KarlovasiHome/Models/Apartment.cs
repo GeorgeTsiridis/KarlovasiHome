@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Android.Graphics;
+using Newtonsoft.Json;
 
 namespace KarlovasiHome.Models
 {
@@ -15,7 +16,9 @@ namespace KarlovasiHome.Models
         private int _year;
         private string _description;
         private RoomType _roomType;
-        //private List<Bitmap> _images;
+
+        private string _phone;
+        private string _ownerName;
 
         public string OwnerId
         {
@@ -117,15 +120,27 @@ namespace KarlovasiHome.Models
             }
         }
 
-        /*public List<Bitmap> Images
+        [JsonIgnore]
+        public string Phone
         {
-            get { return _images; }
+            get { return _phone; }
             set
             {
-                _images = value;
-                OnPropertyChanged(nameof(Images));
+                _phone = value;
+                OnPropertyChanged(nameof(Phone));
             }
-        }*/
+        }
+
+        [JsonIgnore]
+        public string OwnerName
+        {
+            get { return _ownerName; }
+            set
+            {
+                _ownerName = value;
+                OnPropertyChanged(nameof(OwnerName));
+            }
+        }
     }
 
     public enum RoomType
