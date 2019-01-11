@@ -1,6 +1,7 @@
 ﻿using System;
 using KarlovasiHome.Models;
 using Plugin.Geolocator;
+using Rg.Plugins.Popup.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -66,7 +67,11 @@ namespace KarlovasiHome.Views
                     IsPresented = false;
                 else
                     if (await DisplayAlert(null, "Έξοδος;", "ΟΚ", "Άκυρο"))
+                    {
+                        await Navigation.PopAllPopupAsync();
                         await Navigation.PopModalAsync();
+                    }
+                
             });
 
             return true;

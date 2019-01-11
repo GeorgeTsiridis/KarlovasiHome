@@ -4,6 +4,7 @@ using Android.OS;
 using ImageCircle.Forms.Plugin.Droid;
 using Xamarin;
 using Xamarin.Forms;
+using Rg.Plugins.Popup;
 using Plugin.CurrentActivity;
 
 namespace KarlovasiHome.Droid
@@ -19,6 +20,7 @@ namespace KarlovasiHome.Droid
             base.OnCreate(bundle);
             Forms.Init(this, bundle);
 
+            Popup.Init(this, bundle);
             ImageCircleRenderer.Init();
             FormsMaps.Init(this, bundle);
             CrossCurrentActivity.Current.Init(this, bundle);

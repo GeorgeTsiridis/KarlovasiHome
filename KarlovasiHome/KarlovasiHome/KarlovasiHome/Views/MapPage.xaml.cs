@@ -1,5 +1,6 @@
 ﻿using System;
 using KarlovasiHome.ViewModels;
+using Rg.Plugins.Popup.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -9,6 +10,7 @@ namespace KarlovasiHome.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
+        private Map _map;
         private readonly MapViewModel _mvm;
 
         public MapPage()
@@ -17,7 +19,7 @@ namespace KarlovasiHome.Views
 
             _mvm = (MapViewModel) BindingContext;
 
-            var map = new Map(MapSpan.FromCenterAndRadius(new Position(37.794738, 26.708397), Distance.FromMiles(0.8)))
+            _map = new Map(MapSpan.FromCenterAndRadius(new Position(37.794738, 26.708397), Distance.FromMiles(0.8)))
             {
                 IsShowingUser = true,
                 MapType = MapType.Street
@@ -30,12 +32,22 @@ namespace KarlovasiHome.Views
                     Type = PinType.Place,
                     Position = new Position(apartment.Latitude, apartment.Longitude),
                     Label = apartment.Address,
+                    Address = apartment.Address
                 };
 
-                map.Pins.Add(pin);
+                pin.Clicked += PinOnClicked;
+
+                _map.Pins.Add(pin);
             }
 
-            Content = map;
+            Content = _map;
+        }
+
+        private async void PinOnClicked(object sender, EventArgs e)
+        {
+            var pin = (Pin) sender;
+            var apartment = _mvm.Apartments[_map.Pins.IndexOf(pin)];
+            await Navigation.PushPopupAsync(new ApartmentView(apartment));
         }
 
         private void Filters_OnClicked(object sender, EventArgs e)
