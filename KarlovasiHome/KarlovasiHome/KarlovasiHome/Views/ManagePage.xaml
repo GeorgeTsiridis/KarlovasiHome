@@ -12,55 +12,89 @@
 
     <ContentPage.Resources>
         <converters:IsAvailableToBorderColorConverter x:Key="IsAvailableToBorderColorConverter"/>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <converters:IndicatorToOpacityConverter x:Key="IndicatorToOpacityConverter"/>
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="add.png" Clicked="Add_OnClicked"/>
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="ApartmentsListView" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding Apartments}" ItemTapped="ApartmentsListView_OnItemTapped">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Frame Padding="5" CornerRadius="20" Margin="5" BackgroundColor="{Binding IsAvailable, Converter={StaticResource IsAvailableToBorderColorConverter}}">
-                        <Frame CornerRadius="15" Padding="5">
-                            <StackLayout>
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                                    <Label Text="Διαθέσιμο" FontSize="Medium" VerticalOptions="Center"/>
-                                    <Switch IsToggled="{Binding IsAvailable}" VerticalOptions="Center"/>
-                                </StackLayout>
-
-                                <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <Label Text="{Binding Address}" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
-
-                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                                    <StackLayout>
-                                        <Label Text="Τιμή" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding Price, StringFormat='{0:C2}'}" FontSize="Medium" FontAttributes="Bold"/>
-                                            <Label Text="€" FontSize="Medium" FontAttributes="Bold"/>
-                                        </StackLayout>
+    <Grid>
+        <ListView x:Name="ApartmentsListView" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding Apartments}" ItemTapped="ApartmentsListView_OnItemTapped" IsEnabled="{Binding Loading, Converter={StaticResource InverseBoolConverter}}" Opacity="{Binding Loading, Converter={StaticResource IndicatorToOpacityConverter}}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Padding="5" CornerRadius="20" Margin="5" BackgroundColor="{Binding IsAvailable, Converter={StaticResource IsAvailableToBorderColorConverter}}">
+                            <Frame CornerRadius="15" Padding="5">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                        <Label Text="Διαθέσιμο" FontSize="Medium" VerticalOptions="Center"/>
+                                        <Switch IsToggled="{Binding IsAvailable, Mode=OneTime}" VerticalOptions="Center" Toggled="Switch_OnToggled"/>
                                     </StackLayout>
 
-                                    <StackLayout>
-                                        <Label Grid.Row="0" Grid.Column="1" Text="Εμβαδόν" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                        <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                                            <Label Text="{Binding FloorArea}" FontSize="Medium" FontAttributes="Bold"/>
-                                            <Label Text="τ.μ." FontSize="Medium" FontAttributes="Bold"/>
-                                        </StackLayout>
-                                    </StackLayout>
+                                    <Label Text="{Binding Address}" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
 
+                                    <Grid HorizontalOptions="CenterAndExpand" Margin="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame Grid.Column="0" BackgroundColor="#9d9d9d" CornerRadius="20" Padding="0">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+
+                                                <Label Grid.Row="0" Text="Τιμή" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                <Label Grid.Row="1" Text="{Binding Price, StringFormat='{0:C2}'}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            </Grid>
+                                        </Frame>
+
+                                        <Frame Grid.Column="1" BackgroundColor="#9d9d9d" CornerRadius="20" Padding="0">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+
+                                                <Label Grid.Row="0" Text="Έτος Κατασκευής" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                                                <Label Grid.Row="1" Text="{Binding Year}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            </Grid>
+                                        </Frame>
+
+                                        <Frame Grid.Column="2"  BackgroundColor="#9d9d9d" CornerRadius="20" Padding="0">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+
+                                                <Label Grid.Row="0" Text="Εμβαδόν" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                <StackLayout Grid.Row="1"  Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                                                    <Label Text="{Binding FloorArea}" FontAttributes="Bold" VerticalOptions="Center"/>
+                                                    <Label Text="τ.μ." FontAttributes="Bold" VerticalOptions="Center"/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+
+                                    <Label Text="Σχόλια" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="End"/>
+                                    <Frame CornerRadius="15" BackgroundColor="White" Padding="5">
+                                        <Label Text="{Binding Description}" FontSize="Medium"/>
+                                    </Frame>
 
                                 </StackLayout>
-
-                                <Label Text="Σχόλια" FontSize="Medium"/>
-                                <Label Text="{Binding Description}" FontSize="Medium"/>
-
-                            </StackLayout>
+                            </Frame>
                         </Frame>
-                    </Frame>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ActivityIndicator x:Name="Indicator" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50"/>
+    </Grid>
 </ContentPage>

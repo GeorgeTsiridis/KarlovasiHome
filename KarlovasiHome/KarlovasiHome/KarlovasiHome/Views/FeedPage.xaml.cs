@@ -25,7 +25,7 @@ namespace KarlovasiHome.Views
 
         private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
-            var apartment = (Apartment) ((Image) sender).BindingContext;
+            var apartment = (Apartment)((Image) sender).BindingContext;
             if (apartment == null)
                 return;
 

@@ -25,7 +25,7 @@
                 <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             </StackLayout>
 
-            <Button Text="Προσθήκη" Clicked="Add_OnClicked"/>
+            <Button Text="Αποθήκευση"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>
