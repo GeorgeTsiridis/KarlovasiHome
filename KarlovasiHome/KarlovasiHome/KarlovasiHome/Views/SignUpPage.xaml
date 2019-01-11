@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
              xmlns:pscr="clr-namespace:PSC.Xam.Controls.BindableRadioButton;assembly=PSC.Xam.Controls.BindableRadioButton"
+             xmlns:converters="clr-namespace:KarlovasiHome.Converters;assembly=KarlovasiHome"
              x:Class="KarlovasiHome.Views.SignUpPage"
              Title="">
 
@@ -10,28 +11,37 @@
         <viewModels:SignUpViewModel/>
     </ContentPage.BindingContext>
 
-    <ScrollView>
-        <StackLayout>
-            <Entry x:Name="UsernameEntry" Placeholder="Username" Text=""/>
+    <ContentPage.Resources>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <converters:IndicatorToOpacityConverter x:Key="IndicatorToOpacityConverter"/>
+    </ContentPage.Resources>
 
-            <Entry x:Name="NameEntry" Placeholder="Όνομα" Text=""/>
+    <Grid>
+        <ScrollView IsEnabled="{Binding Loading, Converter={StaticResource InverseBoolConverter}}" Opacity="{Binding Loading, Converter={StaticResource IndicatorToOpacityConverter}}">
+            <StackLayout>
+                <Entry x:Name="UsernameEntry" Placeholder="Username" Text=""/>
 
-            <Entry x:Name="LastNameEntry" Placeholder="Επίθετο" Text=""/>
+                <Entry x:Name="NameEntry" Placeholder="Όνομα" Text=""/>
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Είμαι" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" SelectedIndex="-1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Entry x:Name="LastNameEntry" Placeholder="Επίθετο" Text=""/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Είμαι" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" SelectedIndex="-1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+                <Entry x:Name="PhoneEntry" Placeholder="Τηλέφωνο" Keyboard="Numeric" Text=""/>
+
+                <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" Text=""/>
+
+                <Entry x:Name="PasswordEntry" Placeholder="Κωδικός" Text=""/>
+
+                <Entry x:Name="RenterPasswordEntry" Placeholder="Επαλήθευση Κωδικού" Text=""/>
+
+                <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
             </StackLayout>
+        </ScrollView>
 
-            <Entry x:Name="PhoneEntry" Placeholder="Τηλέφωνο" Keyboard="Numeric" Text=""/>
-
-            <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" Text=""/>
-
-            <Entry x:Name="PasswordEntry" Placeholder="Κωδικός" Text=""/>
-
-            <Entry x:Name="RenterPasswordEntry" Placeholder="Επαλήθευση Κωδικού" Text=""/>
-
-            <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
-        </StackLayout>
-    </ScrollView>
+        <ActivityIndicator x:Name="Indicator" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50"/>
+    </Grid>
 </ContentPage>

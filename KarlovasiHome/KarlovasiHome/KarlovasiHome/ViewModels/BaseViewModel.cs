@@ -8,6 +8,7 @@ namespace KarlovasiHome.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        private bool _loading;
         private DataService _dataService;
             
         public BaseViewModel()
@@ -15,10 +16,20 @@ namespace KarlovasiHome.ViewModels
             DataService = App.DataService;
         }
 
+        public bool Loading
+        {
+            get { return _loading; }
+            set
+            {
+                _loading = value;
+                OnPropertyChanged(nameof(Loading));
+            }
+        }
+
         public DataService DataService
         {
             get { return _dataService; }
-            private set
+            set
             {
                 _dataService = value;
                 OnPropertyChanged(nameof(DataService));

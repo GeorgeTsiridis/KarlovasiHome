@@ -6,13 +6,13 @@ using KarlovasiHome.Models;
 
 namespace KarlovasiHome.ViewModels
 {
-    public class FeedViewModel : BaseViewModel
+    public class FavoritesViewModel : BaseViewModel
     {
         private ObservableCollection<Apartment> _apartments;
 
-        public FeedViewModel()
+        public FavoritesViewModel()
         {
-            Apartments = new ObservableCollection<Apartment>(DataService.Apartments.Where(x => x.IsAvailable));
+            Apartments = new ObservableCollection<Apartment>(DataService.Apartments.Where(x => x.IsFavorite));
             foreach (var apartment in Apartments)
             {
                 var user = DataService.Users.First(x => x.Id == apartment.OwnerId);
@@ -32,6 +32,7 @@ namespace KarlovasiHome.ViewModels
                 var favorite = DataService.Favorites.FirstOrDefault(x => x.ApartmentId == apartment.Id);
                 await DataService.SyncFavorites.DeleteAsync(favorite);
                 DataService.Favorites.Remove(favorite);
+                Apartments.Remove(apartment);
             }
             else
             {

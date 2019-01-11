@@ -1,4 +1,5 @@
-﻿using KarlovasiHome.ViewModels;
+﻿using System;
+using KarlovasiHome.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -35,6 +36,11 @@ namespace KarlovasiHome.Views
             }
 
             Content = map;
+        }
+
+        private void Filters_OnClicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }

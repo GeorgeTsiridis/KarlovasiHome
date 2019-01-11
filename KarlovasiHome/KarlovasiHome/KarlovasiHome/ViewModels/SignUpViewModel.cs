@@ -20,11 +20,15 @@ namespace KarlovasiHome.ViewModels
 
         public async Task SignUp(User user)
         {
+            Loading = true;
+
             user.Id = Guid.NewGuid().ToString();
             user.Password = Hash(user.Password);
 
             await DataService.SyncUsers.InsertAsync(user);
             DataService.Users.Add(user);
+
+            Loading = false;
         }
     }
 }

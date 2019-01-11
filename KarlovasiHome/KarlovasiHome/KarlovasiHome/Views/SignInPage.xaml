@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
+             xmlns:converters="clr-namespace:KarlovasiHome.Converters;assembly=KarlovasiHome"
              x:Class="KarlovasiHome.Views.SignInPage"
              Title="">
 
@@ -9,8 +10,13 @@
         <viewModels:SignInViewModel/>
     </ContentPage.BindingContext>
 
+    <ContentPage.Resources>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <converters:IndicatorToOpacityConverter x:Key="IndicatorToOpacityConverter"/>
+    </ContentPage.Resources>
+
     <Grid>
-        <StackLayout VerticalOptions="CenterAndExpand">
+        <StackLayout VerticalOptions="CenterAndExpand" IsEnabled="{Binding Loading, Converter={StaticResource InverseBoolConverter}}" Opacity="{Binding Loading, Converter={StaticResource IndicatorToOpacityConverter}}">
             <Label Text="Username"/>
             <Entry x:Name="UsernameEntry" Text=""/>
             <Label Text="Κωδικός"/>
@@ -19,6 +25,6 @@
             <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
         </StackLayout>
 
-        <ActivityIndicator x:Name="Indicator" IsRunning="True" IsVisible="True" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50"/>
+        <ActivityIndicator x:Name="Indicator" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50"/>
     </Grid>
 </ContentPage>

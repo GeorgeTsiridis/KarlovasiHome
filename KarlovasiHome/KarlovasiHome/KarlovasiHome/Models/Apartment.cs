@@ -19,6 +19,7 @@ namespace KarlovasiHome.Models
 
         private string _phone;
         private string _ownerName;
+        private bool _isFavorite;
 
         public string OwnerId
         {
@@ -159,6 +160,17 @@ namespace KarlovasiHome.Models
             {
                 _ownerName = value;
                 OnPropertyChanged(nameof(OwnerName));
+            }
+        }
+
+        [JsonIgnore]
+        public bool IsFavorite
+        {
+            get { return _isFavorite; }
+            set
+            {
+                _isFavorite = value;
+                OnPropertyChanged(nameof(IsFavorite));
             }
         }
     }

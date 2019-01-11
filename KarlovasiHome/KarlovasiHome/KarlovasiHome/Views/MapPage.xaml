@@ -8,4 +8,8 @@
     <ContentPage.BindingContext>
         <viewModels:MapViewModel/>
     </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="filter.png" Clicked="Filters_OnClicked"/>
+    </ContentPage.ToolbarItems>
 </ContentPage>

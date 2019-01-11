@@ -12,12 +12,12 @@
 
     <StackLayout>
         <Grid HeightRequest="300" BackgroundColor="#f27449">
-            <circleImage:CircleImage HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" BorderThickness="2" BorderColor="Black" Source="https://avatars.servers.getgo.com/2205256774854474505_medium.jpg">
+            <circleImage:CircleImage HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" BorderThickness="3" BorderColor="Black" Source="https://avatars.servers.getgo.com/2205256774854474505_medium.jpg">
                 <circleImage:CircleImage.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ProfileImage_OnTapped"/>
                 </circleImage:CircleImage.GestureRecognizers>
             </circleImage:CircleImage>
-            <StackLayout BackgroundColor="Black" HeightRequest="2" VerticalOptions="End"/>
+            <StackLayout BackgroundColor="Black" HeightRequest="3" VerticalOptions="End"/>
         </Grid>
         <ListView x:Name="MenuListView" HasUnevenRows="True" ItemsSource="{Binding MenuItems}" ItemTapped="MenuListView_OnItemTapped">
             <ListView.ItemTemplate>

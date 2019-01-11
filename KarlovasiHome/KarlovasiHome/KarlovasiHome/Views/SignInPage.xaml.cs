@@ -15,6 +15,7 @@ namespace KarlovasiHome.Views
             InitializeComponent();
 
             _sivm = (SignInViewModel) BindingContext;
+            _sivm.Loading = true;
         }
 
         protected override void OnAppearing()
@@ -27,12 +28,12 @@ namespace KarlovasiHome.Views
 
             }
 
-            Indicator.IsVisible = false;
+            _sivm.Loading = false;
         }
 
         private async void SignIn_OnClicked(object sender, EventArgs e)
         {
-            Indicator.IsVisible = true;
+            _sivm.Loading = true;
 
             var username = UsernameEntry.Text;
             var password = PasswordEntry.Text;
@@ -42,7 +43,7 @@ namespace KarlovasiHome.Views
             else
                 await DisplayAlert(null, "Λάθος username ή κωδικός πρόσβασης!", "OK");
 
-            Indicator.IsVisible = false;
+            _sivm.Loading = false;
         }
 
         private async void SignUp_OnClicked(object sender, EventArgs e)

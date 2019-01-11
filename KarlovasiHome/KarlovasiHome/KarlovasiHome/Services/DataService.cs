@@ -17,7 +17,7 @@ namespace KarlovasiHome.Services
         public User User { get; set; }
         public List<User> Users { get; set; }
         public List<Apartment> Apartments { get; set; }
-        public List<Apartment> Favorites { get; set; }
+        public List<Favorite> Favorites { get; set; }
 
         public Task Init { get; set; }
 

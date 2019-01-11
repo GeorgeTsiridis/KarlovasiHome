@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Android.Content;
-using Android.Locations;
-using Android.Provider;
 using KarlovasiHome.Models;
 using Plugin.Geolocator;
 using Xamarin.Forms;
