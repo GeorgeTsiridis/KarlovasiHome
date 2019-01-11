@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Android.Graphics;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace KarlovasiHome.Models
 {
@@ -8,6 +6,8 @@ namespace KarlovasiHome.Models
     {
         private string _ownerId;
         private string _name;
+        private double _latitude;
+        private double _longitude;
         private bool _isAvailable;
         private string _address;
         private double _price;
@@ -37,6 +37,26 @@ namespace KarlovasiHome.Models
             {
                 _name = value;
                 OnPropertyChanged(nameof(Name));
+            }
+        }
+
+        public double Latitude
+        {
+            get { return _latitude; }
+            set
+            {
+                _latitude = value;
+                OnPropertyChanged(nameof(Latitude));
+            }
+        }
+
+        public double Longitude
+        {
+            get { return _longitude; }
+            set
+            {
+                _longitude = value;
+                OnPropertyChanged(nameof(Longitude));
             }
         }
 

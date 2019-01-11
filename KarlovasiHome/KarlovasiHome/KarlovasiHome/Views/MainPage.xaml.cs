@@ -1,8 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Android.Content;
 using Android.Locations;
 using Android.Provider;
 using KarlovasiHome.Models;
+using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,7 +23,7 @@ namespace KarlovasiHome.Views
             MasterBehavior = MasterBehavior.Popover;
         }
 
-        public void NavigateFromMenu(MenuItemType type)
+        public async void NavigateFromMenu(MenuItemType type)
         {
             Page page = null;
             switch (type)
@@ -33,7 +35,16 @@ namespace KarlovasiHome.Views
                     page = new NavigationPage(new FeedPage());
                     break;
                 case MenuItemType.Map:
-                    page = new NavigationPage(new MapPage());
+                    try
+                    {
+                        var locator = CrossGeolocator.Current;
+                        await locator.GetPositionAsync(new TimeSpan(10000));
+                        page = new NavigationPage(new MapPage());
+                    }
+                    catch
+                    {
+                        await DisplayAlert(null, "Παρακαλώ ανοίξτε την τοποθεσία στη συσκευή σας και ξαναπροσπαθήστε", "ΟΚ");
+                    }
                     break;
                 case MenuItemType.Manage:
                     page = new NavigationPage(new ManagePage());
