@@ -4,6 +4,7 @@
              xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
              xmlns:converters="clr-namespace:KarlovasiHome.Converters;assembly=KarlovasiHome"
              x:Class="KarlovasiHome.Views.SignInPage"
+             BackgroundColor="White"
              Title="">
 
     <ContentPage.BindingContext>
@@ -17,10 +18,11 @@
 
     <Grid>
         <StackLayout VerticalOptions="CenterAndExpand" IsEnabled="{Binding Loading, Converter={StaticResource InverseBoolConverter}}" Opacity="{Binding Loading, Converter={StaticResource IndicatorToOpacityConverter}}">
-            <Label Text="Username"/>
-            <Entry x:Name="UsernameEntry" Text=""/>
-            <Label Text="Κωδικός"/>
-            <Entry x:Name="PasswordEntry" Text=""/>
+            <Image Source="logo.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Username" HorizontalOptions="Center" FontSize="Large"/>
+            <Entry x:Name="UsernameEntry" Text="" HorizontalTextAlignment="Center"/>
+            <Label Text="Κωδικός" HorizontalOptions="Center" FontSize="Large"/>
+            <Entry x:Name="PasswordEntry" Text="" HorizontalTextAlignment="Center"/>
             <Button Text="Είσοδος" Clicked="SignIn_OnClicked"/>
             <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
         </StackLayout>

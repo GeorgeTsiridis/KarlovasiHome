@@ -11,7 +11,7 @@
     </ContentPage.BindingContext>
 
     <StackLayout>
-        <Grid HeightRequest="300" BackgroundColor="#f27449">
+        <Grid HeightRequest="300" BackgroundColor="#2196F3">
             <circleImage:CircleImage HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" BorderThickness="3" BorderColor="Black" Source="https://avatars.servers.getgo.com/2205256774854474505_medium.jpg">
                 <circleImage:CircleImage.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ProfileImage_OnTapped"/>

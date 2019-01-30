@@ -8,6 +8,9 @@ namespace KarlovasiHome.ViewModels
         public async Task<bool> SignIn(string username, string password)
         {
             DataService.User = DataService.Users.FirstOrDefault(x => x.Username == username && x.Password == Hash(password));
+            if (DataService.User == null)
+                return false;
+
             DataService.Apartments = await DataService.SyncApartments.ToListAsync();
             var favorites = await DataService.SyncFavorites.ToListAsync();
             DataService.Favorites = favorites.Where(x => x.UserId == DataService.User.Id).ToList();
@@ -20,7 +23,7 @@ namespace KarlovasiHome.ViewModels
                     apartment.IsFavorite = true;
             }
 
-            return DataService.User != null;
+            return true;
         }
     }
 }

@@ -27,7 +27,7 @@
 
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Είμαι" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                    <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" SelectedIndex="-1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" SelectedIndex="-1" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
                 </StackLayout>
 
                 <Entry x:Name="PhoneEntry" Placeholder="Τηλέφωνο" Keyboard="Numeric" Text=""/>

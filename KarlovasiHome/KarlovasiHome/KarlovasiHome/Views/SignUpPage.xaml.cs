@@ -20,7 +20,7 @@ namespace KarlovasiHome.Views
         }
         
         private async void SignUp_OnClicked(object sender, EventArgs e)
-        {/*
+        {
             if (UsernameEntry.Text == "" ||
                 NameEntry.Text == "" ||
                 LastNameEntry.Text == "" ||
@@ -31,7 +31,7 @@ namespace KarlovasiHome.Views
                 await DisplayAlert(null, "Παρακαλώ συμπληρώστε όλα τα πεδία!", "OK");
                 return;
             }
-            */
+            
             if (RadioGroup.SelectedIndex == -1)
             {
                 await DisplayAlert(null, "Παρακαλώ επιλέξτε είδος λογαριασμού!", "OK");
