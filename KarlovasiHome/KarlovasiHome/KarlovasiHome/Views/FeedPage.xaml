@@ -24,7 +24,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame CornerRadius="20" Padding="5" Margin="5" BackgroundColor="#dddddd" BorderColor="#9d9d9d">
+                        <Frame CornerRadius="15" Padding="5" Margin="5" BackgroundColor="#dddddd" BorderColor="#9d9d9d">
                             <StackLayout>
                                 <Image Source="whitestar.png" IsVisible="{Binding IsFavorite, Converter={StaticResource InverseBoolConverter}}" HeightRequest="30" WidthRequest="30" HorizontalOptions="End">
                                     <Image.GestureRecognizers>
@@ -47,7 +47,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Frame Grid.Column="0" BackgroundColor="#9d9d9d" CornerRadius="20" Padding="0">
+                                    <Frame Grid.Column="0" BackgroundColor="#9d9d9d" CornerRadius="15" Padding="0">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>
@@ -59,7 +59,7 @@
                                         </Grid>
                                     </Frame>
 
-                                    <Frame Grid.Column="1" BackgroundColor="#9d9d9d" CornerRadius="20" Padding="0">
+                                    <Frame Grid.Column="1" BackgroundColor="#9d9d9d" CornerRadius="15" Padding="0">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>
@@ -71,7 +71,7 @@
                                         </Grid>
                                     </Frame>
 
-                                    <Frame Grid.Column="2"  BackgroundColor="#9d9d9d" CornerRadius="20" Padding="0">
+                                    <Frame Grid.Column="2"  BackgroundColor="#9d9d9d" CornerRadius="15" Padding="0">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>

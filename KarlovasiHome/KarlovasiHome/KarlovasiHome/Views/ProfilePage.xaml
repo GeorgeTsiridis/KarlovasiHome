@@ -1,14 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
+             xmlns:bindableRadioButton="clr-namespace:PSC.Xam.Controls.BindableRadioButton;assembly=PSC.Xam.Controls.BindableRadioButton"
+             xmlns:converters="clr-namespace:KarlovasiHome.Converters;assembly=KarlovasiHome"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="KarlovasiHome.Views.ProfilePage"
              Title="">
 
+    <ContentPage.BindingContext>
+        <viewModels:ProfileViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <converters:IndicatorToOpacityConverter x:Key="IndicatorToOpacityConverter"/>
+    </ContentPage.Resources>
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="settings.png" Clicked="Settings_OnClicked"/>
+        <ToolbarItem Icon="editwhite.png" Clicked="Settings_OnClicked"/>
     </ContentPage.ToolbarItems>
 
-    <StackLayout VerticalOptions="CenterAndExpand">
-        <Label FontSize="50" Text="Profile"/>
-    </StackLayout>
+    <Grid>
+        <ScrollView IsEnabled="{Binding Loading, Converter={StaticResource InverseBoolConverter}}" Opacity="{Binding Loading, Converter={StaticResource IndicatorToOpacityConverter}}">
+            <StackLayout>
+                <abstractions:CircleImage HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" BorderThickness="3" BorderColor="Black" Source="https://avatars.servers.getgo.com/2205256774854474505_medium.jpg" IsEnabled="{Binding Enabled}">
+                    <abstractions:CircleImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ProfileImage_OnTapped"/>
+                    </abstractions:CircleImage.GestureRecognizers>
+                </abstractions:CircleImage>
+
+                <Entry x:Name="NameEntry" Placeholder="Όνομα" Text="{Binding DataService.User.FirstName}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="LastNameEntry" Placeholder="Επίθετο" Text="{Binding DataService.User.LastName}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="PhoneEntry" Placeholder="Τηλέφωνο" Keyboard="Numeric" Text="{Binding DataService.User.Phone}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" Text="{Binding DataService.User.Email}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="PasswordEntry" Placeholder="Κωδικός" Text="" IsPassword="True" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="RenterPasswordEntry" Placeholder="Επαλήθευση Κωδικού" Text="" IsPassword="True" IsEnabled="{Binding Enabled}"/>
+            </StackLayout>
+        </ScrollView>
+
+        <ActivityIndicator x:Name="Indicator" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50"/>
+    </Grid>
 </ContentPage>

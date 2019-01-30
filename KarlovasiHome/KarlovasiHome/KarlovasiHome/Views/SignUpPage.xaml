@@ -34,9 +34,9 @@
 
                 <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" Text=""/>
 
-                <Entry x:Name="PasswordEntry" Placeholder="Κωδικός" Text=""/>
+                <Entry x:Name="PasswordEntry" Placeholder="Κωδικός" Text="" IsPassword="True"/>
 
-                <Entry x:Name="RenterPasswordEntry" Placeholder="Επαλήθευση Κωδικού" Text=""/>
+                <Entry x:Name="RenterPasswordEntry" Placeholder="Επαλήθευση Κωδικού" Text="" IsPassword="True"/>
 
                 <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
             </StackLayout>
