@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using KarlovasiHome.Models;
 
 namespace KarlovasiHome.ViewModels
 {
@@ -15,6 +18,19 @@ namespace KarlovasiHome.ViewModels
                 {2, "Τριάρι"},
                 {3, "Άλλο"}
             };
+        }
+
+        public async Task AddApartment(Apartment apartment)
+        {
+            Loading = true;
+
+            apartment.Id = Guid.NewGuid().ToString();
+            apartment.OwnerId = DataService.User.Id;
+
+            await DataService.SyncApartments.InsertAsync(apartment);
+            DataService.Apartments.Add(apartment);
+
+            Loading = false;
         }
     }
 }

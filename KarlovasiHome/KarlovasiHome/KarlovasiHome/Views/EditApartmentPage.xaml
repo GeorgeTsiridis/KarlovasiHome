@@ -3,29 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
              xmlns:pscr="clr-namespace:PSC.Xam.Controls.BindableRadioButton;assembly=PSC.Xam.Controls.BindableRadioButton"
+             xmlns:converters="clr-namespace:KarlovasiHome.Converters;assembly=KarlovasiHome"
              x:Class="KarlovasiHome.Views.EditApartmentPage"
              Title="">
 
     <ContentPage.BindingContext>
-        <viewModels:NewApartmentViewModel/>
+        <viewModels:EditApartmentViewModel/>
     </ContentPage.BindingContext>
 
-    <ScrollView>
-        <StackLayout>
-            <Entry x:Name="NameEntry" Placeholder="Όνομα"/>
-            <Entry x:Name="AddressEntry" Placeholder="Διεύθυνση"/>
-            <Entry x:Name="PriceEntry" Placeholder="Τιμή" Keyboard="Numeric"/>
-            <Entry x:Name="FloorAreaEntry" Placeholder="Εμβαδόν" Keyboard="Numeric"/>
-            <Entry x:Name="RoomsEntry" Placeholder="Δωμάτια" Keyboard="Numeric"/>
-            <Entry x:Name="YearEntry" Placeholder="Έτος Κατασκευής" Keyboard="Numeric"/>
-            <Entry x:Name="DescriptionEntry" Placeholder="Περιγραφή"/>
+    <ContentPage.Resources>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <converters:IndicatorToOpacityConverter x:Key="IndicatorToOpacityConverter"/>
+    </ContentPage.Resources>
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Είδος Δωματίου" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <pscr:BindableRadioGroup x:Name="RadioGroup" ItemsSource="{Binding RadioButtons.Values}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="editwhite.png" Clicked="Settings_OnClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <ScrollView IsEnabled="{Binding Loading, Converter={StaticResource InverseBoolConverter}}" Opacity="{Binding Loading, Converter={StaticResource IndicatorToOpacityConverter}}">
+            <StackLayout>
+                <Entry x:Name="NameEntry" Placeholder="Όνομα" Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="AddressEntry" Placeholder="Επίθετο" Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="PriceEntry" Placeholder="Τηλέφωνο" Keyboard="Numeric" Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="FloorAreaEntry" Placeholder="Email" Keyboard="Email" Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="RoomEntry" Placeholder="Κωδικός"  Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="YearEntry" Placeholder="Επαλήθευση Κωδικού"  Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+
+                <Entry x:Name="DescriptionEntry" Placeholder="Επαλήθευση Κωδικού"  Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
             </StackLayout>
+        </ScrollView>
 
-            <Button Text="Αποθήκευση"/>
-        </StackLayout>
-    </ScrollView>
+        <ActivityIndicator x:Name="Indicator" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50"/>
+    </Grid>
 </ContentPage>
