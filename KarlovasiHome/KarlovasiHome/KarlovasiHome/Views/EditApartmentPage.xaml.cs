@@ -15,9 +15,8 @@ namespace KarlovasiHome.Views
         {
             InitializeComponent();
 
+            _eavm = (EditApartmentViewModel)BindingContext;
             _eavm.Apartment = apartment;
-
-            _eavm = (EditApartmentViewModel) BindingContext;
         }
 
         private void Settings_OnClicked(object sender, EventArgs e)

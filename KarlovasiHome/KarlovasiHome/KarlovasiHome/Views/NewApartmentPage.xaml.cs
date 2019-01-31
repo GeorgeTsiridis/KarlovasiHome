@@ -52,7 +52,7 @@ namespace KarlovasiHome.Views
             await _navm.AddApartment(apartment);
             await DisplayAlert(null, "Επιτυχής προσθήκη δωματίου!", "OK");
 
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

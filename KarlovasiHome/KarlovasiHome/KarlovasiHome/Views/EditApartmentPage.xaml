@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:KarlovasiHome.ViewModels;assembly=KarlovasiHome"
-             xmlns:pscr="clr-namespace:PSC.Xam.Controls.BindableRadioButton;assembly=PSC.Xam.Controls.BindableRadioButton"
              xmlns:converters="clr-namespace:KarlovasiHome.Converters;assembly=KarlovasiHome"
              x:Class="KarlovasiHome.Views.EditApartmentPage"
              Title="">
@@ -25,17 +24,17 @@
             <StackLayout>
                 <Entry x:Name="NameEntry" Placeholder="Όνομα" Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
 
-                <Entry x:Name="AddressEntry" Placeholder="Επίθετο" Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+                <Entry x:Name="AddressEntry" Placeholder="Διεύθυνση" Text="{Binding Apartment.Address}" IsEnabled="{Binding Enabled}"/>
 
-                <Entry x:Name="PriceEntry" Placeholder="Τηλέφωνο" Keyboard="Numeric" Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+                <Entry x:Name="PriceEntry" Placeholder="Τιμή" Keyboard="Numeric" Text="{Binding Apartment.Price}" IsEnabled="{Binding Enabled}"/>
 
-                <Entry x:Name="FloorAreaEntry" Placeholder="Email" Keyboard="Email" Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+                <Entry x:Name="FloorAreaEntry" Placeholder="Εμβαδόν" Keyboard="Numeric" Text="{Binding Apartment.FloorArea}" IsEnabled="{Binding Enabled}"/>
 
-                <Entry x:Name="RoomEntry" Placeholder="Κωδικός"  Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+                <Entry x:Name="RoomEntry" Placeholder="Δωμάτια" Keyboard="Numeric" Text="{Binding Apartment.Rooms}" IsEnabled="{Binding Enabled}"/>
 
-                <Entry x:Name="YearEntry" Placeholder="Επαλήθευση Κωδικού"  Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+                <Entry x:Name="YearEntry" Placeholder="Έτος Κατασκευής" Keyboard="Numeric" Text="{Binding Apartment.Year}" IsEnabled="{Binding Enabled}"/>
 
-                <Entry x:Name="DescriptionEntry" Placeholder="Επαλήθευση Κωδικού"  Text="{Binding Apartment.Name}" IsEnabled="{Binding Enabled}"/>
+                <Entry x:Name="DescriptionEntry" Placeholder="Περιγραφή" Text="{Binding Apartment.Description}" IsEnabled="{Binding Enabled}"/>
             </StackLayout>
         </ScrollView>
 
