@@ -1,5 +1,6 @@
 ﻿using System;
 using KarlovasiHome.ViewModels;
+using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,6 +34,17 @@ namespace KarlovasiHome.Views
 
         private async void SignIn_OnClicked(object sender, EventArgs e)
         {
+            try
+            {
+                var locator = CrossGeolocator.Current;
+                await locator.GetPositionAsync(new TimeSpan(10000));
+            }
+            catch
+            {
+                await DisplayAlert(null, "Παρακαλώ ανοίξτε την τοποθεσία στη συσκευή σας και ξαναπροσπαθήστε", "ΟΚ");
+                return;
+            }
+
             _sivm.Loading = true;
 
             var username = UsernameEntry.Text;

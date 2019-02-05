@@ -19,7 +19,7 @@ namespace KarlovasiHome.Views
         protected override void OnAppearing()
         {
             BindingContext = new ManageViewModel();
-            _mvm = (ManageViewModel)BindingContext;
+            _mvm = (ManageViewModel) BindingContext;
         }
 
         private async void Add_OnClicked(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System;
 using KarlovasiHome.Models;
 using KarlovasiHome.ViewModels;
+using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -37,9 +38,14 @@ namespace KarlovasiHome.Views
                 return;
             }
 
+            var locator = CrossGeolocator.Current;
+            var position = await locator.GetPositionAsync(new TimeSpan(10000));
+
             var apartment = new Apartment
             {
                 Name = NameEntry.Text,
+                Latitude = position.Latitude,
+                Longitude = position.Longitude,
                 Address = AddressEntry.Text,
                 Price = Convert.ToDouble(PriceEntry.Text),
                 FloorArea = Convert.ToDouble(FloorAreaEntry.Text),

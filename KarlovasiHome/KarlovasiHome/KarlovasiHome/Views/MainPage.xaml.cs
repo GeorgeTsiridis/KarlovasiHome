@@ -32,16 +32,7 @@ namespace KarlovasiHome.Views
                     page = new NavigationPage(new FeedPage());
                     break;
                 case MenuItemType.Map:
-                    try
-                    {
-                        var locator = CrossGeolocator.Current;
-                        await locator.GetPositionAsync(new TimeSpan(10000));
-                        page = new NavigationPage(new MapPage());
-                    }
-                    catch
-                    {
-                        await DisplayAlert(null, "Παρακαλώ ανοίξτε την τοποθεσία στη συσκευή σας και ξαναπροσπαθήστε", "ΟΚ");
-                    }
+                    page = new NavigationPage(new MapPage());
                     break;
                 case MenuItemType.Manage:
                     page = new NavigationPage(new ManagePage());
