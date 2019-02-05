@@ -15,13 +15,22 @@ namespace KarlovasiHome.Views
         {
             InitializeComponent();
 
-            _eavm = (EditApartmentViewModel)BindingContext;
+            _eavm = (EditApartmentViewModel) BindingContext;
             _eavm.Apartment = apartment;
         }
 
         private void Settings_OnClicked(object sender, EventArgs e)
         {
             _eavm.Enabled = !_eavm.Enabled;
+        }
+
+        private async void Delete_OnClicked(object sender, EventArgs e)
+        {
+            if (await DisplayAlert(null, "Διαγραφή διαμερίσματος;", "Ναι", "Άκυρο"))
+            {
+                await _eavm.DeleteApartment();
+                await Navigation.PopAsync();
+            }
         }
     }
 }

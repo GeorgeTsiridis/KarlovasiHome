@@ -9,13 +9,17 @@ namespace KarlovasiHome.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ManagePage : ContentPage
     {
-        private readonly ManageViewModel _mvm;
+        private ManageViewModel _mvm;
 
         public ManagePage()
         {
             InitializeComponent();
+        }
 
-            _mvm = (ManageViewModel) BindingContext;
+        protected override void OnAppearing()
+        {
+            BindingContext = new ManageViewModel();
+            _mvm = (ManageViewModel)BindingContext;
         }
 
         private async void Add_OnClicked(object sender, EventArgs e)

@@ -6,10 +6,6 @@
              x:Class="KarlovasiHome.Views.ManagePage"
              Title="">
 
-    <ContentPage.BindingContext>
-        <viewModels:ManageViewModel/>
-    </ContentPage.BindingContext>
-
     <ContentPage.Resources>
         <converters:IsAvailableToBorderColorConverter x:Key="IsAvailableToBorderColorConverter"/>
         <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>

@@ -22,7 +22,7 @@
             <Label Text="Username" HorizontalOptions="Center" FontSize="Large"/>
             <Entry x:Name="UsernameEntry" Text="" HorizontalTextAlignment="Center"/>
             <Label Text="Κωδικός" HorizontalOptions="Center" FontSize="Large"/>
-            <Entry x:Name="PasswordEntry" Text="" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="PasswordEntry" Text="" IsPassword="True" HorizontalTextAlignment="Center"/>
             <Button Text="Είσοδος" Clicked="SignIn_OnClicked"/>
             <Button Text="Εγγραφή" Clicked="SignUp_OnClicked"/>
         </StackLayout>

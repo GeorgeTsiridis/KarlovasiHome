@@ -14,7 +14,7 @@ namespace KarlovasiHome.ViewModels
                 {
                     new HomeMenuItem { Type = MenuItemType.Feed, Title="Αρχική" },
                     new HomeMenuItem { Type = MenuItemType.Map, Title="Χάρτης" },
-                    new HomeMenuItem { Type = MenuItemType.Manage, Title="Διαχείρηση" },
+                    new HomeMenuItem { Type = MenuItemType.Manage, Title="Διαχείριση" },
                     new HomeMenuItem { Type = MenuItemType.Favorites, Title="Αγαπημένα" }
                 };
             else

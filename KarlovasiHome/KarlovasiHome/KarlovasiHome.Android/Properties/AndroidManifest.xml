@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.karlovasihome" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="22" />
-	<application android:label="KarlovasiHome.Android">
-	  <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCPAK-gIh_hXPo-FiaN23yXq163jqRLNu0" />
+	<application android:label="KarlovasiHome.Android" android:icon="@drawable/logo">
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCPAK-gIh_hXPo-FiaN23yXq163jqRLNu0" />
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />

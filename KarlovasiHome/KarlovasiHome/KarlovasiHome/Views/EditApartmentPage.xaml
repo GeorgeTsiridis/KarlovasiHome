@@ -16,6 +16,7 @@
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="delete.png" Clicked="Delete_OnClicked"/>
         <ToolbarItem Icon="editwhite.png" Clicked="Settings_OnClicked"/>
     </ContentPage.ToolbarItems>
 
