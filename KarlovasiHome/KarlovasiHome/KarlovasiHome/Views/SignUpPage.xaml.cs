@@ -22,7 +22,7 @@ namespace KarlovasiHome.Views
         private async void SignUp_OnClicked(object sender, EventArgs e)
         {
             if (UsernameEntry.Text == "" ||
-                NameEntry.Text == "" ||
+                FirstNameEntry.Text == "" ||
                 LastNameEntry.Text == "" ||
                 PhoneEntry.Text == "" ||
                 EmailEntry.Text == "" ||
@@ -54,7 +54,7 @@ namespace KarlovasiHome.Views
             {
                 Username = UsernameEntry.Text,
                 Password = PasswordEntry.Text,
-                FirstName = PasswordEntry.Text,
+                FirstName = FirstNameEntry.Text,
                 LastName = LastNameEntry.Text,
                 Phone = PhoneEntry.Text,
                 Email = EmailEntry.Text,

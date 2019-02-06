@@ -21,7 +21,7 @@
             <StackLayout>
                 <Entry x:Name="UsernameEntry" Placeholder="Username" Text=""/>
 
-                <Entry x:Name="NameEntry" Placeholder="Όνομα" Text=""/>
+                <Entry x:Name="FirstNameEntry" Placeholder="Όνομα" Text=""/>
 
                 <Entry x:Name="LastNameEntry" Placeholder="Επίθετο" Text=""/>
 
